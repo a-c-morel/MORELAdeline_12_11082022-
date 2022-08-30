@@ -1,31 +1,88 @@
-import React,{useState,useEffect} from 'react';
+import React from "react";
 
-function App() {
-  const [data,setData]=useState([]);
-  const getData=()=>{
-    fetch('mockAPI.json'
-    ,{
-      headers : { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    }
-    )
-      .then(function(response){
-        console.log(response)
-        return response.json();
-      })
-      .then(function(myJson) {
-        console.log(myJson);
-        setData(myJson)
-      });
+export default class App extends React.Component {
+  
+  constructor(props) {
+      super(props)
+      this.state = {users : {}}
   }
-  useEffect(()=>{
-    getData()
-  },[])
-  return (
-    <div className="App" data={data}>display some text</div>
-  );
+
+  async componentDidMount() {
+    try {
+      const response = await fetch("mockAPI.json")
+      const data = await response.json()
+      console.log("this is the data", data)
+      console.log("this is the usersGeneral data", data.usersGeneral)
+      this.setState({users: {
+          usersGeneral: data.usersGeneral,
+          usersActivity: data.usersActivity,
+          usersAverageSessions: data.usersAverageSessions,
+          usersPerformance: data.usersPerformance
+        }  
+      })
+      console.log("this is the state", this.state)
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  render() {
+    //const {users} = this.state.users
+    return(
+      <div>
+        <p>Hey guys!</p>
+        {/*<ul>
+        {users.usersGeneral.map(userGeneral => 
+          <li key={userGeneral.userId}>Hello, user {userGeneral.userId}</li>
+        )}
+        </ul>*/}
+      </div>
+    )
+  }
+  
 }
 
-export default App;
+/*import React from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom"
+import Dashboard from './pages/Dashboard'
+import PageNotFound from './pages/PageNotFound'
+
+class App extends React.Component {
+  
+  constructor(props) {
+    super(props)
+    this.state = {data: []}
+  }
+
+  componentDidMount() {
+    const fetchData = async () => {
+      const response = await fetch('mockAPI.json')
+      const { data } = await response.json()
+      this.setState({data})
+    }
+    fetchData()
+  }
+  
+  render() {
+    console.log(this.sate.data)
+
+    return (
+      <Router>
+        <Routes>
+          <Route path="/:id/*" element={<Dashboard data={this.state.usersGeneral}/>} />
+          <Route path="*" element={<PageNotFound data={this.state.usersGeneral}/>} />
+        </Routes>
+    </Router>
+    )
+  }
+ 
+}
+
+export default App*/

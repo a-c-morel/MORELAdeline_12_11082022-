@@ -1,7 +1,7 @@
 {
 	"usersGeneral": [
 	{
-		"id": 12,
+		"userId": 12,
 		"userInfos": {
 			"firstName": "Karl",
 			"lastName": "Dovineau",
@@ -15,9 +15,8 @@
 			"lipidCount": 50
 		}
 	},
-
 	{
-		"id": 18,
+		"userId": 18,
 		"userInfos": {
 			"firstName": "Cecilia",
 			"lastName": "Ratorez",
