@@ -2,7 +2,7 @@
 import { Routes, Route } from "react-router-dom"
 import PageNotFound from "./PageNotFound"
 
-function Dashboard({data}) {
+export default function Dashboard({data}) {
     console.log(data)
     /*let {id} = useParams()
     let idMatching = data.usersGeneral.map(user => user.userId === id)
@@ -20,5 +20,3 @@ function Dashboard({data}) {
         </div>  
       )
   }
-  
-  export default Dashboard;

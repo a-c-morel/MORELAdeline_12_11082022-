@@ -4,13 +4,16 @@ export default class App extends React.Component {
   
   constructor(props) {
       super(props)
-      this.state = {users : {}}
+      this.state = {users : {}, loading: true}
+      console.log("this is the state before componentDidMount", this.state)
   }
 
   async componentDidMount() {
     try {
+      //faire appel fonction qui fait le fetch ici
       const response = await fetch("mockAPI.json")
       const data = await response.json()
+      
       console.log("this is the data", data)
       console.log("this is the usersGeneral data", data.usersGeneral)
       this.setState({users: {
@@ -18,9 +21,7 @@ export default class App extends React.Component {
           usersActivity: data.usersActivity,
           usersAverageSessions: data.usersAverageSessions,
           usersPerformance: data.usersPerformance
-        }  
-      })
-      console.log("this is the state", this.state)
+        }, loading: false}, () => {console.log("this is the state", this.state)})
       if (!response.ok) {
         throw Error(response.statusText)
       }
@@ -30,15 +31,17 @@ export default class App extends React.Component {
   }
 
   render() {
-    //const {users} = this.state.users
-    return(
+    const { loading } = this.state
+    const { users } = this.state
+    return loading ? (<div>loading...</div>)
+    : (
       <div>
         <p>Hey guys!</p>
-        {/*<ul>
+        <ul>
         {users.usersGeneral.map(userGeneral => 
           <li key={userGeneral.userId}>Hello, user {userGeneral.userId}</li>
         )}
-        </ul>*/}
+        </ul>
       </div>
     )
   }
