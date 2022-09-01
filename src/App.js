@@ -1,39 +1,30 @@
 import React from "react";
+import fetchData from "./fetchData";
 
 export default class App extends React.Component {
   
   constructor(props) {
       super(props)
       this.state = {users : {}, loading: true}
-      console.log("this is the state before componentDidMount", this.state)
+      //console.log("this is the state before componentDidMount", this.state)
   }
 
   async componentDidMount() {
-    try {
-      //faire appel fonction qui fait le fetch ici
-      const response = await fetch("mockAPI.json")
-      const data = await response.json()
-      
-      console.log("this is the data", data)
-      console.log("this is the usersGeneral data", data.usersGeneral)
+      const data = await fetchData()
+      //console.log("this is the data", data)
+      //console.log("this is the usersGeneral data", data.usersGeneral)
       this.setState({users: {
           usersGeneral: data.usersGeneral,
           usersActivity: data.usersActivity,
           usersAverageSessions: data.usersAverageSessions,
           usersPerformance: data.usersPerformance
         }, loading: false}, () => {console.log("this is the state", this.state)})
-      if (!response.ok) {
-        throw Error(response.statusText)
-      }
-    } catch (error) {
-      console.log(error)
-    }
   }
 
   render() {
     const { loading } = this.state
     const { users } = this.state
-    return loading ? (<div>loading...</div>)
+    return loading ? null
     : (
       <div>
         <p>Hey guys!</p>
