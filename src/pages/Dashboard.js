@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { Routes, Route } from "react-router-dom"
 import PageNotFound from "./PageNotFound"
+import Greetings from "../components/Greetings"
 
 export default function Dashboard({data}) {
   console.log("Dashboard data", data)
@@ -16,9 +17,7 @@ export default function Dashboard({data}) {
   
   return (idMatching.length>0) ? (
     idMatching.map(user => (
-      <div key={user.userId}>
-        Hello user {user.userId} !
-      </div>
+      <Greetings key={user.userId} name={user.userInfos.firstName} />
     ))
   ) : (
       <div>
