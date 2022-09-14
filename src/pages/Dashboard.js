@@ -2,14 +2,15 @@ import { useParams } from "react-router-dom"
 import { Routes, Route } from "react-router-dom"
 import PageNotFound from "./PageNotFound"
 import Greetings from "../components/Greetings"
+import PropTypes from "prop-types"
 
 export default function Dashboard({data}) {
-  console.log("Dashboard data", data)
+  //console.log("Dashboard data", data)
   const { userId } = useParams()
-  console.log("userId in url: ", userId)
+  //console.log("userId in url: ", userId)
   
   const idMatching = data.filter(user => parseFloat(userId) ===  user.userId)
-  console.log("idMatching :", idMatching) //output: [] (should be an array containing an object)
+  //console.log("idMatching :", idMatching) //output: [] (should be an array containing an object)
   
   if (data === undefined) {
     return null
@@ -27,3 +28,7 @@ export default function Dashboard({data}) {
       </div>  
     )
   }
+
+Dashboard.propTypes = {
+    data: PropTypes.array.isRequired
+}

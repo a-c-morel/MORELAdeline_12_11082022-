@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom"
+import PropTypes from "prop-types"
 
 export default function Home({data}) {
-    console.log("Home data", data)
+    //console.log("Home data", data)
     return (data === undefined) ? (null)    
     : (
         <div>
@@ -13,4 +14,8 @@ export default function Home({data}) {
            ))}
         </div>
       )
-  }
+}
+
+Home.propTypes = {
+  data: PropTypes.array.isRequired
+}
