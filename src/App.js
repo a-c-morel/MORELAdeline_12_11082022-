@@ -1,7 +1,104 @@
-import React from "react";
-import fetchData from "./fetchData";
+import FetchData from "./fetchData"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom"
+import Dashboard from './pages/Dashboard'
+import PageNotFound from './pages/PageNotFound'
+import Home from "./pages/Home"
 
-export default class App extends React.Component {
+export default function App() {
+  const data = FetchData()
+
+  const users = {
+    usersGeneral: data.usersGeneral,
+    usersActivity: data.usersActivity,
+    usersAverageSessions: data.usersAverageSessions,
+    usersPerformance: data.usersPerformance
+  }
+
+  return (data === undefined) ? (null)
+  : (
+    <Router>
+    <Routes>
+      <Route path="/" element={<Home data={users.usersGeneral}/>} />
+      <Route path="/dashboard/:userId/*" element={<Dashboard data={users.usersGeneral} />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </Router>
+  )
+}
+
+
+
+/*export default function App() {
+
+  const [dataState, setDataState] = useState({
+    users : {},
+    loading: true
+  })
+
+  useEffect(() => {
+    const usersData = fetchData()
+    setDataState({
+      users: usersData,
+      loading: false
+    })
+  }, [])
+
+  console.log(dataState)*/
+
+  /*return (dataState === {}) ? (
+    <PageNotFound />
+  ) : (
+    <Router>
+    <Routes>
+      <Route path="/" element={<Home data={dataState.usersGeneral}/>} />
+      <Route path="/dashboard/:userId/*" element={<Dashboard data={dataState.usersGeneral} />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </Router>
+  )*/
+
+//}
+
+/*export default function App() {
+
+  const [dataState, setDataState]= useState( {} )
+  const [loadingState, setLoadingState] = useState( false )
+
+  useEffect(() => {
+    setLoadingState(true)
+    fetchData(setLoadingState)
+  }, [])
+  
+
+  function initState() {
+    setDataState({users: {
+      usersGeneral: dataState.usersGeneral,
+      usersActivity: dataState.usersActivity,
+      usersAverageSessions: dataState.usersAverageSessions,
+      usersPerformance: dataState.usersPerformance
+    }})
+    setLoadingState( false )
+  }
+  initState()
+
+  return (loadingState === true) ? (
+    null
+  ) : (
+    <Router>
+    <Routes>
+      <Route path="/" element={<Home data={dataState.usersGeneral}/>} />
+      <Route path="/dashboard/:userId/*" element={<Dashboard data={dataState.usersGeneral} />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </Router>
+  )
+}*/
+
+/*export default class App extends React.Component {
   
   constructor(props) {
       super(props)
@@ -18,7 +115,7 @@ export default class App extends React.Component {
           usersActivity: data.usersActivity,
           usersAverageSessions: data.usersAverageSessions,
           usersPerformance: data.usersPerformance
-        }, loading: false}, () => {console.log("this is the state", this.state)})
+        }, loading: false}) //, () => {console.log("this is the state", this.state)}
   }
 
   render() {
@@ -26,57 +123,14 @@ export default class App extends React.Component {
     const { users } = this.state
     return loading ? null
     : (
-      <div>
-        <p>Hey guys!</p>
-        <ul>
-        {users.usersGeneral.map(userGeneral => 
-          <li key={userGeneral.userId}>Hello, user {userGeneral.userId}</li>
-        )}
-        </ul>
-      </div>
-    )
-  }
-  
-}
-
-/*import React from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom"
-import Dashboard from './pages/Dashboard'
-import PageNotFound from './pages/PageNotFound'
-
-class App extends React.Component {
-  
-  constructor(props) {
-    super(props)
-    this.state = {data: []}
-  }
-
-  componentDidMount() {
-    const fetchData = async () => {
-      const response = await fetch('mockAPI.json')
-      const { data } = await response.json()
-      this.setState({data})
-    }
-    fetchData()
-  }
-  
-  render() {
-    console.log(this.sate.data)
-
-    return (
       <Router>
         <Routes>
-          <Route path="/:id/*" element={<Dashboard data={this.state.usersGeneral}/>} />
-          <Route path="*" element={<PageNotFound data={this.state.usersGeneral}/>} />
+          <Route path="/" element={<Home data={users.usersGeneral}/>} />
+          <Route path="/dashboard/:userId/*" element={<Dashboard data={users.usersGeneral} />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
-    </Router>
-    )
+      </Router>
+      )    
   }
- 
-}
-
-export default App*/
+  
+}*/

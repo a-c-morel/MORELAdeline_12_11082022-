@@ -1,12 +1,33 @@
-export default async function fetchData() {
-    try {
-        const response = await fetch("mockAPI.json")
-        const data = await response.json()
-    if (!response.ok) {
-        throw Error(response.statusText)
+import { useState, useEffect } from "react"
+
+export default function FetchData() {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    fetch("mockAPI.json")
+    .then(response => {
+      if(response.ok) {
+        return response.json()
       }
-    return data
-    } catch (error) {
-      console.log(error)
-    }
+      throw response
+    })
+    .then((data) => {
+      setData(data)
+    })
+    .catch(error => {
+      console.error("Error fetching data : ", error)
+      setError(error)
+    })
+    .finally(() => {
+      setLoading(false)
+    })
+  }, [])
+
+  if(loading) return "Loading..."
+  if(error) return "Error!"
+
+  return data
+  
 }
