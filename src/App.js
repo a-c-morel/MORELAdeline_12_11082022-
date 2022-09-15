@@ -1,14 +1,26 @@
-import FetchData from "./fetchData"
-import {
+import fetchData from "./fetchData"
+/*import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom"
 import Dashboard from './pages/Dashboard'
 import PageNotFound from './pages/PageNotFound'
-import Home from "./pages/Home"
+import Home from "./pages/Home"*/
+import { useState, useEffect } from "react"
 
 export default function App() {
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    let mockedData = "mockAPI.json"
+    fetchData(mockedData).then((users) => setData(users))
+  }, [])
+
+  console.log(data)
+}
+
+/*export default function App() {
   const data = FetchData()
 
   const users = {
@@ -28,4 +40,4 @@ export default function App() {
     </Routes>
   </Router>
   )
-}
+}*/

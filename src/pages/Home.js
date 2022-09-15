@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-import PropTypes from "prop-types"
+//import PropTypes from "prop-types"
 
 export default function Home({data}) {
     //console.log("Home data", data)
@@ -16,6 +16,6 @@ export default function Home({data}) {
       )
 }
 
-Home.propTypes = {
-  data: PropTypes.array.isRequired
-}
+/*Home.propTypes = {
+  data: PropTypes.array
+}*/
