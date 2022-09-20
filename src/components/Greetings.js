@@ -6,8 +6,8 @@ export default function Greetings({name}) {
     }
     return(
         <div>
-            <h1>Bonjour {name}</h1>
-            <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
+            <h2>Bonjour {name}</h2>
+            <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
         </div>
     )
 }
