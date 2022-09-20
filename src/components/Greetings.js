@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+//import PropTypes from "prop-types"
 
 export default function Greetings({name}) {
     if (name === undefined) {
@@ -12,10 +12,10 @@ export default function Greetings({name}) {
     )
 }
 
-Greetings.propTypes = {
+/*Greetings.propTypes = {
     name: PropTypes.string.isRequired
 }
 
 Greetings.defaultProps = {
     name: 'Utilisateur',
-}
+}*/

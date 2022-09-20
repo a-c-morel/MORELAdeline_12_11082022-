@@ -1,23 +1,22 @@
-import fetchData from "./fetchData"
-/*import {
+import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom"
 import Dashboard from './pages/Dashboard'
 import PageNotFound from './pages/PageNotFound'
-import Home from "./pages/Home"*/
-import { useState, useEffect } from "react"
+import Home from "./pages/Home"
 
 export default function App() {
-  const [data, setData] = useState(null)
-
-  useEffect(() => {
-    let mockedData = "mockAPI.json"
-    fetchData(mockedData).then((users) => setData(users))
-  }, [])
-
-  console.log(data)
+  return (
+    <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/dashboard/:userId/*" element={<Dashboard />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </Router>
+  )
 }
 
 /*export default function App() {
