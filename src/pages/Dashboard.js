@@ -10,7 +10,6 @@ export default function Dashboard() {
   const [data, setData] = useState(null)
 
   const { userId } = useParams()
-  //console.log(typeof(userId)) output: string
 
   useEffect(() => {
     let mockedData = "../mockAPI.json"
