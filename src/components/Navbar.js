@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png'
+import logo from '../assets/logo-with-text.png'
 import {NavLink} from "react-router-dom"
 
 export default function Navbar() {
@@ -6,13 +6,12 @@ export default function Navbar() {
     return(
         <nav>
             <NavLink to="/">
-                <div>
+                <div className="logo">
                 <img src={logo} alt="logo" />
-                <h1>SportSee</h1>
                 </div>
             </NavLink>
-            <ul>
-                <li>Accueil</li>
+            <ul className="navigation">
+                <li><NavLink to="/">Accueil</NavLink></li>
                 <li>Profil</li>
                 <li>Réglages</li>
                 <li>Communauté</li>

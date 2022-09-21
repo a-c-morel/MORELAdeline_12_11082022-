@@ -16,7 +16,7 @@ export default function Home() {
     <div>Loading...</div>
   )    
     : (
-        <div>
+        <div className="home">
            <p>Select a user</p>
            {data.usersGeneral.map(userGeneral => (
             <Link to={`/dashboard/`+ userGeneral.userId} key={userGeneral.userId}>
