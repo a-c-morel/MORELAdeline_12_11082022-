@@ -1,7 +1,4 @@
-import {
-  Routes,
-  Route,
-} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Dashboard from './pages/Dashboard'
 import PageNotFound from './pages/PageNotFound'
 import Home from "./pages/Home"

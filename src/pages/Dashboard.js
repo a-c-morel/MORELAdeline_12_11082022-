@@ -1,39 +1,33 @@
-import fetchData from "../fetchData"
+import { fetchGreetingsData } from "../fetchData"
 import { useState, useEffect } from "react"
-import { Routes, Route, useParams } from "react-router-dom"
-import PageNotFound from "./PageNotFound"
+import { useParams } from "react-router-dom" //Routes, Route,
+//import PageNotFound from "./PageNotFound"
 import Greetings from "../components/Greetings"
-import PropTypes from "prop-types"
 
 export default function Dashboard() {
   
-  const [data, setData] = useState(null)
+  const [greetingsData, setGreetingsData] = useState(null)
+  //const [barChartsData, setBarChartsData] = useState(null)
+  //etc.
 
   const { userId } = useParams()
 
   useEffect(() => {
     let mockedData = "../mockAPI.json"
-    fetchData(mockedData).then((users) => setData(users.usersGeneral.filter(userGeneral => parseFloat(userId) ===  userGeneral.userId)))
+    fetchGreetingsData(mockedData).then((data) => {
+      setGreetingsData(data.filter(userGeneral => parseFloat(userId) === userGeneral.userId))
+    })
+    /*fetchBarChartsData(mockedData).then .... -> setBarChartsData etc.
+    ...
+    */
   }, [userId])
 
-  return (data === null) ? (
+  return (greetingsData === null) ? (
     <div>Loading...</div>
   ) : (
-        (data.length > 0) ? (
-          data.map(user => (
-            <Greetings key={user.userId} name={user.userInfos.firstName} />
-          ))
-        ) : (
-          <div>
-            <Routes>
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
-          </div>  
-        )
+    <div className="dashboard-container">
+      <Greetings data={greetingsData} />
+    </div>
   )
 
-}
-
-Dashboard.propTypes = {
-    data: PropTypes.array
 }

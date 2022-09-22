@@ -63,6 +63,10 @@
     width: 62.13rem;
   }
 
+  main {
+    width: 100%;
+  }
+
   .home {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -77,7 +81,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: 10rem;
+    height: 91.1vh;
   }
 
   .container {
@@ -127,4 +131,27 @@
     color: #ffffff;
     font-size: .75rem;
     white-space: nowrap;
+  }
+
+  .dashboard-container {
+    padding: 4.25rem 5.63rem 5.38rem 6.69rem;
+  }
+
+  .greetings {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  h2 span {
+    color: var(--primary-color)
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 400;
   }
