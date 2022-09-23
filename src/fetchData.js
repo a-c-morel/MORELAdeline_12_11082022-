@@ -1,3 +1,5 @@
+                    /*Generic function for the whole data*/
+
 export default async function fetchData(url) {
   try {
     const response = await fetch(url)
@@ -16,8 +18,9 @@ export default async function fetchData(url) {
 
 /****************************************************************************************************/
 
-            //A TESTER :
+                    /*Specialized functions for each component*/
 
+//Greetings
 export async function fetchGreetingsData(url) {
   try {
     const response = await fetch(url)
@@ -29,16 +32,12 @@ export async function fetchGreetingsData(url) {
   }
 }
 
+//BarCharts
 export async function fetchBarChartsData(url) {
   try {
     const response = await fetch(url)
     const json = await response.json()
     let data = json.usersActivity
-    
-    /*et ensuite sessions.map(session => (
-      {name: session.day, uv: session.kilogram, pv: session.calories}
-    )) -> peut-être dans le then ?*/
-
     return data
   } catch (error) {
       console.log("error", error)
