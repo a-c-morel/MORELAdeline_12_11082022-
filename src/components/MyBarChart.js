@@ -1,35 +1,30 @@
-import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar} from "recharts"
+import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer} from "recharts"
 
 export default function MyBarChart({data}) {
 
-    if (data === null) {
+    /*if (data === null) {
         console.log("loading...")
     } else {
-        console.log("here is your data: ", JSON.stringify(data))
-    }
+        console.log("here is your data: ", data)
+    }*/
 
 
         return (data === null) ? ( <div>Loading...</div>) 
         : (
-            <BarChart width={835} height={320} data={data[0]} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="Poids (kg)" fill="#282D30" radius="5px" />
-                <Bar dataKey="Calories brûlées (kCal)" fill="#E60000" />
-            </BarChart>
+            <div className="barchart-container">
+                <h4>Activité quotidienne</h4>
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart className="barchart" title="Activité quotidienne" data={data[0]} margin={{left: 32,top: 64}}> {/**width={835} height={320}  */}
+                        <Legend align="right" wrapperStyle={{top: -20, right: 19}}/>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis orientation="right"/>
+                        <Tooltip />
+                        <Bar barSize={7} dataKey="Poids (kg)" fill="#282D30" radius={[3, 3, 0, 0]} />
+                        <Bar barSize={7} dataKey="Calories brûlées (kCal)" fill="#FF0000" radius={[3, 3, 0, 0]}/>
+                    </BarChart>
+                </ResponsiveContainer>
+            </div>
+            
         )
     }
-    
-    
-    /*data = [
-        {"name": "1", "Poids (kg)": 80, "Calories brûlées (kCal)": 240},
-        {"name": "2", "Poids (kg)": 80, "Calories brûlées (kCal)": 220},
-        {"name": "3", "Poids (kg)": 81, "Calories brûlées (kCal)": 280},
-        {"name": "4", "Poids (kg)": 81, "Calories brûlées (kCal)": 290},
-        {"name": "5", "Poids (kg)": 80, "Calories brûlées (kCal)": 160},
-        {"name": "6", "Poids (kg)": 78, "Calories brûlées (kCal)": 162},
-        {"name": "6", "Poids (kg)": 76, "Calories brûlées (kCal)": 390},
-    ]*/ //ok

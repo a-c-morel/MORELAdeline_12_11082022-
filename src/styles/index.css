@@ -3,6 +3,7 @@
 :root {
     --primary-color: #FF0000;
     --secondary-color: #020203;
+    --third-color: #FBFBFB;
   }
 
 * {
@@ -154,4 +155,15 @@
   h3 {
     font-size: 1rem;
     font-weight: 400;
+  }
+
+  .barchart-container {
+    width: 63.11%;
+    height: 34.3vh;
+    background-color: var(--third-color);
+  }
+
+  .barchart-container h4 {
+    padding-top: 2.57vh;
+    padding-left: 2.42vw;
   }
