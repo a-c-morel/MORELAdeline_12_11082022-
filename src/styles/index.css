@@ -44,14 +44,14 @@
     width: 100%;
     padding-right: 5.69rem;
     padding-left: 1.75rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     background-color: var(--secondary-color);
     color: #ffffff;
-    height: 8.89vh;
+    height: 5.69rem;
   }
 
   .logo img {
-    height: 5.95vh;
+    height: 3.81rem;
     width: auto;
   }
 
@@ -62,6 +62,11 @@
     -ms-flex-pack: distribute;
         justify-content: space-around;
     width: 62.13rem;
+  }
+
+  .container {
+    height: 58.31rem;
+    overflow: hidden;
   }
 
   main {
@@ -82,7 +87,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 91.1vh;
+    height: 100%;
   }
 
   .container {
@@ -102,10 +107,10 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 4rem;
-    height: 91.1vh;
-    padding-top: 15vh;
-    gap: 4rem;
+    width: 7.31rem;
+    /*height: 100%;*/
+    padding-top: 16rem;
+    gap: 14.56rem;
     background-color: var(--secondary-color);
   }
 
@@ -117,7 +122,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 3.5vw;
+    width: 4rem;
   }
 
   aside ul li img {
@@ -139,31 +144,56 @@
   }
 
   .greetings {
-    margin-bottom: 2rem;
+    margin-bottom: 4.81rem;
   }
 
-  h2 {
-    font-size: 2rem;
+  .greetings h2 {
+    font-size: 3rem;
     font-weight: 500;
-    margin-bottom: 1rem;
+    margin-bottom: 2.56rem;
   }
 
-  h2 span {
+  .greetings h2 span {
     color: var(--primary-color)
   }
 
-  h3 {
-    font-size: 1rem;
+  .greetings h3 {
+    font-size: 1.13rem;
     font-weight: 400;
   }
 
   .barchart-container {
-    width: 63.11%;
-    height: 34.3vh;
+    width: 52.19rem;
+    height: 20rem;
     background-color: var(--third-color);
+    border-radius: .31rem;
   }
 
   .barchart-container h4 {
     padding-top: 2.57vh;
     padding-left: 2.42vw;
+  }
+
+  .square-charts_container {
+    width: 52.165rem;
+    height: 16.56rem;
+    margin-top: 3.31rem;
+  }
+
+  .linechart-container {
+    width: 16.13rem;
+    height: 16.44rem;
+    background-color: var(--primary-color);
+    border-radius: .31rem;
+  }
+
+  .linechart-container h4 {
+    padding-top: 1.81rem;
+    padding-left: 2.13rem;
+    width: 9.19rem;
+    color: #ffffff8e
+  }
+
+  .linechart-graph {
+    height: 11.61rem;
   }

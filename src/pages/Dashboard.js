@@ -1,13 +1,16 @@
-import { fetchGreetingsData, fetchBarChartsData } from "../fetchData"
+import { fetchGreetingsData, fetchBarChartData, fetchLineChartData } from "../fetchData"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Greetings from "../components/Greetings"
-import MyBarChart from "../components/MyBarChart"
+import UserActivity from "../components/UserActivity"
+import UserAverageSessions from "../components/UserAverageSessions"
+import { getDayOfWeek } from "../fetchData"
 
 export default function Dashboard() {
   
   const [greetingsData, setGreetingsData] = useState(null)
-  const [barChartsData, setBarChartsData] = useState(null)
+  const [barChartData, setBarChartData] = useState(null)
+  const [lineChartData, setLineChartData] = useState(null)
   //etc.
 
   const { userId } = useParams()
@@ -17,12 +20,20 @@ export default function Dashboard() {
     fetchGreetingsData(mockedData).then((data) => {
       setGreetingsData(data.filter(userGeneral => parseFloat(userId) === userGeneral.userId))
     })
-    fetchBarChartsData(mockedData).then((data) => {
-      setBarChartsData(data.filter(userActivity => parseFloat(userId) === userActivity.userId).map(userActivity => userActivity.sessions.map((session, index) => 
+    fetchBarChartData(mockedData).then((data) => {
+      setBarChartData(data.filter(userActivity => parseFloat(userId) === userActivity.userId).map(userActivity => userActivity.sessions.map((session, index) => 
         {return ({
             "name": (index+1).toString(),
             "Poids (kg)": session.kilogram,
             "Calories brûlées (kCal)": session.calories
+        })}
+      )))
+    })
+    fetchLineChartData(mockedData).then((data) => {
+      setLineChartData(data.filter(userAverageSessions => parseFloat(userId) === userAverageSessions.userId).map(userAverageSession => userAverageSession.sessions.map((session, index) => 
+        {return ({
+            "name": getDayOfWeek(session.day),
+            "min": session.sessionLength
         })}
       )))
     })
@@ -33,7 +44,10 @@ export default function Dashboard() {
   ) : (
     <div className="dashboard-container">
       <Greetings data={greetingsData} />
-      <MyBarChart data={barChartsData} />
+      <UserActivity data={barChartData} />
+      <div className="square-charts_container">
+        <UserAverageSessions data={lineChartData} />
+      </div>
     </div>
   )
 

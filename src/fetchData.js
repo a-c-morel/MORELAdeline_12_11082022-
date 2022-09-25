@@ -32,8 +32,8 @@ export async function fetchGreetingsData(url) {
   }
 }
 
-//BarCharts
-export async function fetchBarChartsData(url) {
+//User Activity (BarChart)
+export async function fetchBarChartData(url) {
   try {
     const response = await fetch(url)
     const json = await response.json()
@@ -41,5 +41,35 @@ export async function fetchBarChartsData(url) {
     return data
   } catch (error) {
       console.log("error", error)
+  }
+}
+
+//User Average Sessions (LineChart)
+export async function fetchLineChartData(url) {
+  try {
+    const response = await fetch(url)
+    const json = await response.json()
+    let data = json.usersAverageSessions
+    return data
+  } catch (error) {
+      console.log("error", error)
+  }
+}
+
+export function getDayOfWeek(weekday) {
+  if (weekday === 1) {
+    return "L"
+  }
+  if (weekday === 2 || weekday === 3) {
+    return "M"
+  }
+  if (weekday === 4) {
+    return "J"
+  } if (weekday === 5) {
+    return "V"
+  } if (weekday === 6) {
+    return "S"
+  } if (weekday === 7) {
+    return "D"
   }
 }
