@@ -2,12 +2,14 @@ import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveC
 
 export default function UserActivity({data}) {
 
-    /*if (data === null) {
-        console.log("loading...")
-    } else {
-        console.log("here is your data: ", data)
-    }*/
-
+    const CustomTooltip = ({ active, payload }) => {
+        return (active && payload && payload.length) ? (
+            <div className="custom-tooltip">
+              <p className="value">{`${payload[0].value}kg`}</p>
+              <p className="value">{`${payload[1].value}Kcal`}</p>
+            </div>
+        ) : (null)
+    }
 
         return (data === null) ? ( <div>Loading...</div>) 
         : (
@@ -19,7 +21,7 @@ export default function UserActivity({data}) {
                         <CartesianGrid strokeDasharray="2 1" vertical={false}/>
                         <XAxis dataKey="name" />
                         <YAxis orientation="right" tickCount="3" />
-                        <Tooltip cursor={{fill: '#c4c4c480'}}/>
+                        <Tooltip content={<CustomTooltip />} wrapperStyle={{width: "2.44rem", height: "3.94rem", outline: "none", backgroundColor: "#FF0000"}} /> {/** cursor={{fill: '#c4c4c480'}} wrapperStyle={{width: "2.44rem", height: "3.94rem", outline: "none"}} contentStyle={{ backgroundColor: '#FF0000', color: '#ffffff'}}*/}
                         <Bar barSize={7} dataKey="Poids (kg)" fill="#282D30" radius={[3, 3, 0, 0]} />
                         <Bar barSize={7} dataKey="Calories brûlées (kCal)" fill="#FF0000" radius={[3, 3, 0, 0]}/>
                     </BarChart>

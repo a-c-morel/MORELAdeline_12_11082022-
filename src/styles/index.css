@@ -4,6 +4,7 @@
     --primary-color: #FF0000;
     --secondary-color: #020203;
     --third-color: #FBFBFB;
+    --test-color: #0202030a;
   }
 
 * {
@@ -181,6 +182,16 @@
   }
 
   .linechart-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 16.13rem;
     height: 16.44rem;
     background-color: var(--primary-color);
@@ -188,6 +199,8 @@
   }
 
   .linechart-container h4 {
+    -ms-flex-item-align: start;
+        align-self: start;
     padding-top: 1.81rem;
     padding-left: 2.13rem;
     width: 9.19rem;
@@ -196,4 +209,22 @@
 
   .linechart-graph {
     height: 11.61rem;
+    width: 14.31rem;
+  }
+
+  .custom-tooltip {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1.5rem;
+    padding-top: .70rem;
+    font-size: .44rem;
+    color: #ffffff;
   }
