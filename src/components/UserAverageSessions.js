@@ -2,7 +2,13 @@ import {LineChart,Tooltip, XAxis, YAxis, Line, ResponsiveContainer} from "rechar
 
 export default function UserAverageSessions({data}) {
 
-    
+    const CustomTooltip = ({ active, payload }) => {
+        return (active && payload && payload.length) ? (
+            <div className="custom-tooltip_linechart">
+              <p className="value">{`${payload[0].value} min`}</p>
+            </div>
+        ) : (null)
+    }
 
         return (data === null) ? ( <div>Loading...</div>) 
         : (
@@ -13,7 +19,7 @@ export default function UserAverageSessions({data}) {
                     <LineChart data={data[0]} fill="#FF0000">
                         <XAxis tickSize="0" axisLine={false} dataKey="name" tick={{ fill: "#ffffff8e" }}/>
                         <YAxis unit="min" hide={true} tickSize="0" axisLine={false} dataKey="min"/>
-                        <Tooltip wrapperStyle={{outline: "none"}} cursor={{ stroke: '#0202030a', strokeWidth: 79 }} />
+                        <Tooltip content={<CustomTooltip />} wrapperStyle={{outline: "none", width: "2.44rem", height: "1.5rem", backgroundColor: "#ffffff"}} cursor={{ stroke: '#0202030a', strokeWidth: 79 }} />
                         <Line type="natural" dataKey="min" stroke="#ffffff8e" strokeWidth={3} dot={false} />
                     </LineChart>
                 </ResponsiveContainer>
