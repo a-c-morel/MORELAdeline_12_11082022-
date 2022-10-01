@@ -1,41 +1,33 @@
-import { fetchGreetingsData, fetchBarChartData, fetchLineChartData } from "../fetchData"
+import { fetchGreetingsData, fetchBarChartData, fetchLineChartData, fetchRadarChartData } from "../fetchData"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Greetings from "../components/Greetings"
 import UserActivity from "../components/UserActivity"
 import UserAverageSessions from "../components/UserAverageSessions"
-import { getDayOfWeek } from "../fetchData"
+import UserPerformance from "../components/UserPerformance"
 
 export default function Dashboard() {
   
   const [greetingsData, setGreetingsData] = useState(null)
   const [barChartData, setBarChartData] = useState(null)
   const [lineChartData, setLineChartData] = useState(null)
+  const [radarChartData, setRadarChartData] = useState(null)
   //etc.
 
   const { userId } = useParams()
 
   useEffect(() => {
-    let mockedData = "../mockAPI.json"
-    fetchGreetingsData(mockedData).then((data) => {
-      setGreetingsData(data.filter(userGeneral => parseFloat(userId) === userGeneral.userId))
+    fetchGreetingsData(userId).then((data) => {
+      setGreetingsData(data)
     })
-    fetchBarChartData(mockedData).then((data) => {
-      setBarChartData(data.filter(userActivity => parseFloat(userId) === userActivity.userId).map(userActivity => userActivity.sessions.map((session, index) => 
-        {return ({
-            "name": (index+1).toString(),
-            "Poids (kg)": session.kilogram,
-            "Calories brûlées (kCal)": session.calories
-        })}
-      )))
+    fetchBarChartData(userId).then((data) => {
+      setBarChartData(data)
     })
-    fetchLineChartData(mockedData).then((data) => {
-      setLineChartData(data.filter(userAverageSessions => parseFloat(userId) === userAverageSessions.userId).map(userAverageSession => userAverageSession.sessions.map((session, index) => 
-        {return ({
-            "name": getDayOfWeek(session.day),
-            "min": session.sessionLength
-        })}
-      )))
+    fetchLineChartData(userId).then((data) => {
+      setLineChartData(data)
+    })
+    fetchRadarChartData(userId).then((data) => {
+      setRadarChartData(data)
     })
   }, [userId])
 
@@ -47,8 +39,14 @@ export default function Dashboard() {
       <UserActivity data={barChartData} />
       <div className="square-charts_container">
         <UserAverageSessions data={lineChartData} />
+        <UserPerformance data={radarChartData} />
       </div>
     </div>
   )
 
 }
+
+/*
+      
+        
+        {/* fin de commentaire}*/

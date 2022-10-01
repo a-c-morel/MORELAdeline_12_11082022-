@@ -45,14 +45,14 @@
     width: 100%;
     padding-right: 5.69rem;
     padding-left: 1.75rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color: var(--secondary-color);
     color: #ffffff;
-    height: 5.69rem;
+    height: 4.33rem;
   }
 
   .logo img {
-    height: 3.81rem;
+    height: 2.81rem;
     width: auto;
   }
 
@@ -141,17 +141,17 @@
   }
 
   .dashboard-container {
-    padding: 4.25rem 5.63rem 5.38rem 6.69rem;
+    padding: 3.24rem 5.63rem 5.38rem 6.69rem;
   }
 
   .greetings {
-    margin-bottom: 4.81rem;
+    margin-bottom: 2.81rem;
   }
 
   .greetings h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
-    margin-bottom: 2.56rem;
+    margin-bottom: 1.56rem;
   }
 
   .greetings h2 span {
@@ -159,7 +159,7 @@
   }
 
   .greetings h3 {
-    font-size: 1.13rem;
+    font-size: 1rem;
     font-weight: 400;
   }
 
@@ -179,6 +179,9 @@
     width: 52.165rem;
     height: 16.56rem;
     margin-top: 3.31rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .linechart-container {
@@ -242,4 +245,10 @@
     line-height: 1.5rem;
     font-size: .5rem;
     color: #000000;
+  }
+
+  .radarchart-container {
+    width: 16.13rem;
+    height: 16.44rem;
+    border-radius: .31rem;
   }
