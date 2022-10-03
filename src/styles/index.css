@@ -4,7 +4,7 @@
     --primary-color: #FF0000;
     --secondary-color: #020203;
     --third-color: #FBFBFB;
-    --test-color: #0202030a;
+    --test-color: #ff0101c4;
   }
 
 * {
@@ -43,16 +43,16 @@
         -ms-flex-align: center;
             align-items: center;
     width: 100%;
-    padding-right: 5.69rem;
-    padding-left: 1.75rem;
-    font-size: 1rem;
+    padding-right: 4.04rem;
+    padding-left: 1.24rem;
+    font-size: 1.14rem;
     background-color: var(--secondary-color);
     color: #ffffff;
     height: 4.33rem;
   }
 
   .logo img {
-    height: 2.81rem;
+    height: 2.75rem;
     width: auto;
   }
 
@@ -62,12 +62,13 @@
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    width: 62.13rem;
+    width: 44.18rem;
   }
 
   .container {
-    height: 58.31rem;
-    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   main {
@@ -91,12 +92,6 @@
     height: 100%;
   }
 
-  .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-
   aside {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -108,10 +103,10 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 7.31rem;
-    /*height: 100%;*/
-    padding-top: 16rem;
-    gap: 14.56rem;
+    width: 5.2rem;
+    padding-top: 12.19rem;
+    padding-bottom: 2.81rem;
+    gap: 14.56rem; /*à modifier*/ 
     background-color: var(--secondary-color);
   }
 
@@ -123,7 +118,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 4rem;
+    width: 2.85rem;
   }
 
   aside ul li img {
@@ -132,26 +127,26 @@
   }
 
   aside p {
-    -webkit-transform: rotate(-90deg) translateX(-4.31rem);
-        -ms-transform: rotate(-90deg) translateX(-4.31rem);
-            transform: rotate(-90deg) translateX(-4.31rem);
+    -webkit-transform: rotate(-90deg) translateX(-3.29rem);
+        -ms-transform: rotate(-90deg) translateX(-3.29rem);
+            transform: rotate(-90deg) translateX(-3.29rem);
     color: #ffffff;
-    font-size: .75rem;
+    font-size: .53rem;
     white-space: nowrap;
   }
 
   .dashboard-container {
-    padding: 3.24rem 5.63rem 5.38rem 6.69rem;
+    padding: 3.24rem 4rem 4.09rem 4.76rem;
   }
 
   .greetings {
-    margin-bottom: 2.81rem;
+    margin-bottom: 3.67rem;
   }
 
   .greetings h2 {
-    font-size: 2rem;
+    font-size: 2.29rem;
     font-weight: 500;
-    margin-bottom: 1.56rem;
+    margin-bottom: 1.95rem;
   }
 
   .greetings h2 span {
@@ -164,55 +159,16 @@
   }
 
   .barchart-container {
-    width: 52.19rem;
-    height: 20rem;
+    width: 37.11rem;
+    height: 15.23rem;
     background-color: var(--third-color);
     border-radius: .31rem;
   }
 
   .barchart-container h4 {
-    padding-top: 2.57vh;
-    padding-left: 2.42vw;
-  }
-
-  .square-charts_container {
-    width: 52.165rem;
-    height: 16.56rem;
-    margin-top: 3.31rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-
-  .linechart-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 16.13rem;
-    height: 16.44rem;
-    background-color: var(--primary-color);
-    border-radius: .31rem;
-  }
-
-  .linechart-container h4 {
-    -ms-flex-item-align: start;
-        align-self: start;
-    padding-top: 1.81rem;
-    padding-left: 2.13rem;
-    width: 9.19rem;
-    color: #ffffff8e
-  }
-
-  .linechart-graph {
-    height: 11.61rem;
-    width: 14.31rem;
+    font-size: .71rem;
+    padding-top: 1.14rem;
+    padding-left: 1.42rem;
   }
 
   .custom-tooltip_barchart {
@@ -232,6 +188,48 @@
     color: #ffffff;
   }
 
+  .square-charts_container {
+    width: 37.07rem;
+    height: 12.62rem;
+    margin-top: 3.31rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1.33rem
+  }
+
+  .linechart-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 11.47rem;
+    height: 12.62rem;
+    background-color: var(--primary-color);
+    border-radius: .31rem;
+  }
+
+  .linechart-container h4 {
+    -ms-flex-item-align: start;
+        align-self: start;
+    padding-top: 1.38rem;
+    padding-left: 1.51rem;
+    width: 6.58rem;
+    color: #ffffff8e;
+    font-size: 0.71rem
+  }
+
+  .linechart-graph {
+    height: 9.61rem;
+    width: 10.31rem;
+  }
+
   .custom-tooltip_linechart {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -248,7 +246,64 @@
   }
 
   .radarchart-container {
-    width: 16.13rem;
-    height: 16.44rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 11.47rem;
+    height: 12.62rem;
     border-radius: .31rem;
+    background-color: #282D30;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: 7px;
   }
+
+  /*wireframes dimensions : 1440 x 1024 px*/
+  @media only screen and (min-width: 1440px) and (min-height: 1024px) {
+    nav {
+      padding-right: 5.5rem;
+      padding-left: 1.75rem;
+      font-size: 1.5rem;
+      height: 5.69rem;
+    }
+
+    .logo img {
+      height: 3.81rem;
+    }
+
+    .navigation {
+      width: 62.13rem;
+    }
+
+    .container {
+      height: 58.31rem;
+    }
+
+    aside {
+      width: 7.31rem;
+      padding-top: 16rem; 
+      gap: 14.56rem; /*à modifier*/ 
+      background-color: var(--secondary-color);
+    }
+
+    aside ul {
+      width: 4rem;
+    }
+
+    aside p {
+      -webkit-transform: rotate(-90deg) translateX(-4.31rem);
+          -ms-transform: rotate(-90deg) translateX(-4.31rem);
+              transform: rotate(-90deg) translateX(-4.31rem);
+      font-size: .75rem;
+    }
+
+    .dashboard-container {
+      padding: 4.25rem 5.63rem 5.38rem 6.69rem;
+    }
+}

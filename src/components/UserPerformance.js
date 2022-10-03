@@ -1,22 +1,24 @@
-import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from "recharts"
+import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts"
 
 export default function UserPerformance({data}) {
 
         return (data === null) ? ( <div>Loading...</div>) 
         : (
             <div className="radarchart-container">
-            <ResponsiveContainer width="100%" height="100%">
-                <RadarChart outerRadius={90} data={data}>
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="subject" />
-                    <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                    <Radar dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                    <Legend />
-                </RadarChart>
-            </ResponsiveContainer>
+                <ResponsiveContainer width="100%" height="100%" >
+                    <RadarChart margin={{ top: 0, right: 25, bottom: 0, left: 25 }} data={data}>
+                        <PolarGrid radialLines={false}/>
+                        <PolarAngleAxis tick={{ fill:"#FFFFFF"}} dataKey="subject" />
+                        <PolarRadiusAxis tickCount={6} tick={false} axisLine={false} />
+                        <Radar dataKey="value" stroke="none" fill="#FF0000" fillOpacity={0.6}/>
+                    </RadarChart>
+                </ResponsiveContainer>
             </div>
         )
     }
+
+
+/* RadarChart : outerRadius={90}  */
 
     //console.log("log de la data depuis UserPerformance.js: ", data)
    /* */
