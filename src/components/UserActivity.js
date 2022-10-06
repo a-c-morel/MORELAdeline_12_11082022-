@@ -17,7 +17,7 @@ export default function UserActivity({data}) {
                 <h4>Activité quotidienne</h4>
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart className="barchart" title="Activité quotidienne" data={data[0]} margin={{left: 32,top: 64}}>
-                        <Legend align="right" wrapperStyle={{top: -20, right: 19}}/>
+                        <Legend align="right" wrapperStyle={{top: -15, right: 19, fontSize: ".67rem"}} iconSize= "8" iconType="circle"/>
                         <CartesianGrid strokeDasharray="2 1" vertical={false} />
                         <XAxis dataKey="name" />
                         <YAxis orientation="right" tickCount="3" />

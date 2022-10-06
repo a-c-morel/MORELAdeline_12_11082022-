@@ -17,7 +17,7 @@ export default function UserAverageSessions({data}) {
                 <div className="linechart-graph">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data[0]} fill="#FF0000">
-                        <XAxis tickSize="0" axisLine={false} dataKey="name" tick={{ fill: "#ffffff8e", fontSize:".57rem"}}/>
+                        <XAxis tickSize="0" axisLine={false} dataKey="name" tick={{ fill: "#ffffff8e", fontSize:".57rem" }}/>
                         <YAxis unit="min" hide={true} tickSize="0" axisLine={false} dataKey="min"/>
                         <Tooltip content={<CustomTooltip />} wrapperStyle={{outline: "none", width: "2.44rem", height: "1.5rem", backgroundColor: "#ffffff"}} cursor={{ stroke: '#0202030a', strokeWidth: 79 }} />
                         <Line type="natural" dataKey="min" stroke="#ffffff8e" strokeWidth={2} dot={false} />

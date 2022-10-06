@@ -2,8 +2,9 @@ let mode = "dev"
 let urlDev = "../mockAPI.json"
 let urlProd = ""
  
- /*Generic function for the whole data*/
+ /* ⬇ Generic function for the whole data ⬇ */
 
+ //I only use it on HomePage, please use the specialized functions for each component below
 export default async function fetchData(url) {
   try {
     const response = await fetch(url)
@@ -22,9 +23,9 @@ export default async function fetchData(url) {
 
 /****************************************************************************************************/
 
-                    /*Specialized functions for each component*/
+                    /* ⬇ Specialized functions for each component ⬇ */
 
-//Greetings
+//Greetings ⬇
 export async function fetchGreetingsData(id) {
   if(mode === "dev") {
     try {
@@ -37,7 +38,7 @@ export async function fetchGreetingsData(id) {
     }
   } else {
     try {
-      const response = await fetch(urlProd) //endPoint avec l'id
+      const response = await fetch(urlProd) // ⬅ endPoint avec l'id
       const json = await response.json()
       return json
     } catch (error) {
@@ -46,7 +47,7 @@ export async function fetchGreetingsData(id) {
   }
 }
 
-//User Activity (BarChart)
+//User Activity (BarChart) ⬇
 export async function fetchBarChartData(id) {
   if (mode === "dev") {
     try {
@@ -70,7 +71,7 @@ export async function fetchBarChartData(id) {
     }
   } else {
     try {
-      const response = await fetch(urlProd) //endPoint avec l'id
+      const response = await fetch(urlProd) // ⬅ endPoint avec l'id
       const json = await response.json()
       return json
     } catch (error) {
@@ -80,7 +81,7 @@ export async function fetchBarChartData(id) {
   
 }
 
-//User Average Sessions (LineChart)
+//User Average Sessions (LineChart) ⬇
 export async function fetchLineChartData(id) {
   if (mode === "dev") {
     try {
@@ -103,7 +104,7 @@ export async function fetchLineChartData(id) {
     }
   } else {
     try {
-      const response = await fetch(urlProd) //endPoint avec l'id
+      const response = await fetch(urlProd) // ⬅ endPoint avec l'id
       const json = await response.json()
       return json
     } catch (error) {
@@ -130,24 +131,18 @@ function getDayOfWeek(weekday) {
   }
 }
 
-// User Performance (RadarChart)
+// User Performance (RadarChart) ⬇
 export async function fetchRadarChartData(id) {
   if(mode === "dev") {
     try {
       const response = await fetch(urlDev)
       const json = await response.json()
-      
       let data = json.usersPerformance.filter(userPerformance => parseFloat(id) === userPerformance.userId)
-      //console.log("data from fetchRadarChartData: ", data)
-      //toute la data de l'utilisateur choisi
-
+      // ⬆ toute la data de performance de l'utilisateur choisi
       let kind = data[0].kind
-      //console.log("kind object: ", kind)
-      //{"1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity"}
-      
+      // ⬆ {"1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity"}
       let dataArray = data[0].data
-      //console.log("Array qui s'appelle 'data': ", dataArray)
-      //[{"value": 200, "kind": 1}, {"value": 240, "kind": 2}, {"value": 80, "kind": 3}, {"value": 80, "kind": 4}, {"value": 220, "kind": 5}, {"value": 110, "kind": 6}]
+      // ⬆ [{"value": 200, "kind": 1}, {"value": 240, "kind": 2}, {"value": 80, "kind": 3}, {"value": 80, "kind": 4}, {"value": 220, "kind": 5}, {"value": 110, "kind": 6}]
       
       const getKind = function(number) {
         let myNumber = number.toString()
@@ -169,7 +164,7 @@ export async function fetchRadarChartData(id) {
     }
   } else {
     try {
-      const response = await fetch(urlProd) //endPoint avec l'id
+      const response = await fetch(urlProd) // ⬅ endPoint avec l'id
       const json = await response.json()
       return json
     } catch (error) {
@@ -178,30 +173,44 @@ export async function fetchRadarChartData(id) {
   }
 }
 
-/*async function getSubject(myNumber, myId) {
+//Score (PieChart) ⬇
+export async function fetchPieChartData(id) {
   if(mode === "dev") {
     try {
       const response = await fetch(urlDev)
       const json = await response.json()
-      let myKind = json.usersPerformance
-        .filter(userPerformance => parseFloat(myId) === userPerformance.userId)
-        .map(userPerformance => 
-          Object.keys(userPerformance.kind)
-            .map(myKey => 
-              ( myKey === myNumber) ? userPerformance.kind : null
-            )
-        )
-      return myKind
+      const data = json.usersGeneral.filter(userGeneral => parseFloat(id) === userGeneral.userId)
+      // ⬆ toute la data de performance de l'utilisateur choisi
+      const scoreData = data[0].todayScore
+      // ⬆ score de l'utilisateur (en floatnumber)
+      const percentageScore = scoreData * 100
+      // ⬆ score de l'utilisateur converti en pourcentage
+
+      const pieChartData= [
+        {
+          "name": "score",
+          "value": percentageScore,
+          "color": "#FF0000"
+        },
+        {
+          "name": "remains",
+          "value": 100-percentageScore,
+          "color": "transparent"
+        }
+      ]
+
+      return pieChartData
+
     } catch (error) {
         console.log("error", error)
     }
   } else {
     try {
-      const response = await fetch(urlProd) //endPoint avec l'id
+      const response = await fetch(urlProd) // ⬅ endPoint avec l'id
       const json = await response.json()
       return json
     } catch (error) {
         console.log("error", error)
     }
   }
-}*/
+}
