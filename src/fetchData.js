@@ -186,18 +186,27 @@ export async function fetchPieChartData(id) {
       const percentageScore = scoreData * 100
       // ⬆ score de l'utilisateur converti en pourcentage
 
-      const pieChartData= [
-        {
-          "name": "score",
-          "value": percentageScore,
-          "color": "#FF0000"
-        },
-        {
-          "name": "remains",
-          "value": 100-percentageScore,
-          "color": "transparent"
-        }
-      ]
+      const pieChartData= {
+        pieChart: [
+          {
+            "name": "score",
+            "value": percentageScore,
+            "color": "#FF0000"
+          },
+          {
+            "name": "remains",
+            "value": 100-percentageScore,
+            "color": "transparent"
+          }
+        ],
+        legend: [
+          {
+            "name": "legend",
+            "value": 100,
+            "color": "#ffffff"
+          }
+        ]
+      }
 
       return pieChartData
 

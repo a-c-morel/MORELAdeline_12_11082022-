@@ -265,6 +265,7 @@
   }
 
   .piechart-container {
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -279,6 +280,28 @@
     height: 12.62rem;
     background-color: #FBFBFB;
     border-radius: .31rem;
+    /*padding: 24px*/
+  }
+
+  .piechart-container h4 {
+    position: absolute;
+    top: 1.14rem;
+    left: 1.33rem;
+    font-size: .71rem;
+  }
+
+  .piechart-legend {
+    position: absolute;
+    top: 5.10rem;
+    text-align: center;
+    z-index: 2;
+    font-size: 1.1rem;
+    color: #282D30;
+  }
+
+  .piechart-legend p {
+    font-size: .76rem;
+    color: #74798C;
   }
 
   /*wireframes dimensions : 1440 x 1024 px*/
