@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import PropTypes from "prop-types"
-import fetchData from "../fetchData"
+import fetchData from "../services/fetchData"
 import { useState, useEffect } from "react"
 
 export default function Home() {
