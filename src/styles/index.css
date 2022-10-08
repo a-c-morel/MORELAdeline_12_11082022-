@@ -4,7 +4,7 @@
     --primary-color: #FF0000;
     --secondary-color: #020203;
     --third-color: #FBFBFB;
-    --test-color: #ff0101c4;
+    --test-color: #ff000016;
   }
 
 * {
@@ -317,6 +317,7 @@
             flex-direction: column;
     margin-top: 9.6rem;
     margin-left: 1.38rem;
+    gap: 1.86rem
   }
 
   .intake-element {
@@ -329,9 +330,98 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    width: 11.47rem;
+    height: 5.9rem;
+    background-color: #FBFBFB;
+    border-radius: .31rem;
+    gap: 1.07rem
   }
 
-  .intake__text {
+  .intake-img-energy {
+    width: 0.7rem;
+    height: 0.95rem;
+  }
+
+  .intake-img-energy__background {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 2.76rem;
+    height: 2.76rem;
+    background-color: rgba(255, 0, 0, .06);
+    border-radius: .38rem;
+  }
+
+  .intake-img-proteins {
+    width: 0.84rem;
+    height: 0.89rem;
+  }
+
+  .intake-img-proteins__background {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 2.76rem;
+    height: 2.76rem;
+    background-color: rgba(74, 184, 255, 0.1);
+    border-radius: .38rem;
+  }
+
+  .intake-img-carb {
+    width: 0.75rem;
+    height: 0.95rem;
+  }
+
+  .intake-img-carb__background {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 2.76rem;
+    height: 2.76rem;
+    background-color: rgba(249, 206, 35, 0.1);
+    border-radius: .38rem;
+  }
+
+  .intake-img-lipid {
+    width: 0.89rem;
+    height: 0.89rem;
+  }
+
+  .intake-img-lipid__background {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 2.76rem;
+    height: 2.76rem;
+    background-color: rgba(253, 81, 129, 0.1);
+    border-radius: .38rem;
+  }
+
+  .intake-text {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -339,6 +429,15 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .intake-text__value {
+    font-size: .95rem;
+    font-weight: bold;
+  }
+
+  .intake-text__type {
+    font-size: .67rem;
   }
 
   /*wireframes dimensions : 1440 x 1024 px*/

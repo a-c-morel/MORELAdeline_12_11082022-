@@ -3,10 +3,12 @@ import cheeseburger from "../assets/cheeseburger.png"
 export default function LipidsIntake({data}) {
     return (
         <div className="intake-element">
-            <img src={cheeseburger} alt="" />
-            <div className="intake__text">
-                <p>{data}g</p>
-                <h3>Lipides</h3>
+            <div className="intake-img-lipid__background">
+                <img src={cheeseburger} alt="" className="intake-img-lipid" />
+            </div>
+            <div className="intake-text">
+                <p className="intake-text__value">{data}g</p>
+                <h3 className="intake-text__type">Lipides</h3>
             </div>
         </div>
     )
