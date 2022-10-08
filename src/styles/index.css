@@ -5,6 +5,7 @@
     --secondary-color: #020203;
     --third-color: #FBFBFB;
     --test-color: #ff000016;
+    --main-radius: .31rem;
   }
 
 * {
@@ -165,7 +166,7 @@
     width: 37.11rem;
     height: 15.23rem;
     background-color: var(--third-color);
-    border-radius: .31rem;
+    border-radius: var(--main-radius);
   }
 
   .barchart-container h4 {
@@ -201,21 +202,24 @@
     gap: 1.33rem
   }
 
-  .linechart-container {
+  .square-chart {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     width: 11.47rem;
     height: 12.62rem;
+    border-radius: var(--main-radius);
+  }
+
+  .linechart-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background-color: var(--primary-color);
-    border-radius: .31rem;
   }
 
   .linechart-container h4 {
@@ -249,18 +253,6 @@
   }
 
   .radarchart-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 11.47rem;
-    height: 12.62rem;
-    border-radius: .31rem;
     background-color: #282D30;
     color: #ffffff;
     text-transform: capitalize;
@@ -269,21 +261,11 @@
 
   .piechart-container {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 11.47rem;
-    height: 12.62rem;
     background-color: #FBFBFB;
-    border-radius: .31rem;
-    /*padding: 24px*/
   }
 
   .piechart-container h4 {
@@ -333,8 +315,23 @@
     width: 11.47rem;
     height: 5.9rem;
     background-color: #FBFBFB;
-    border-radius: .31rem;
+    border-radius: var(--main-radius);
     gap: 1.07rem
+  }
+
+  .intake-img__background {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 2.76rem;
+    height: 2.76rem;
+    border-radius: .38rem;
   }
 
   .intake-img-energy {
@@ -343,19 +340,7 @@
   }
 
   .intake-img-energy__background {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 2.76rem;
-    height: 2.76rem;
     background-color: rgba(255, 0, 0, .06);
-    border-radius: .38rem;
   }
 
   .intake-img-proteins {
@@ -364,19 +349,7 @@
   }
 
   .intake-img-proteins__background {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 2.76rem;
-    height: 2.76rem;
     background-color: rgba(74, 184, 255, 0.1);
-    border-radius: .38rem;
   }
 
   .intake-img-carb {
@@ -385,19 +358,7 @@
   }
 
   .intake-img-carb__background {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 2.76rem;
-    height: 2.76rem;
     background-color: rgba(249, 206, 35, 0.1);
-    border-radius: .38rem;
   }
 
   .intake-img-lipid {
@@ -406,19 +367,7 @@
   }
 
   .intake-img-lipid__background {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 2.76rem;
-    height: 2.76rem;
     background-color: rgba(253, 81, 129, 0.1);
-    border-radius: .38rem;
   }
 
   .intake-text {

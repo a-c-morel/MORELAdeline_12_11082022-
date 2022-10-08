@@ -4,7 +4,7 @@ export default function UserPerformance({data}) {
 
         return (data === null) ? ( <div>Loading...</div>) 
         : (
-            <div className="radarchart-container">
+            <div className="radarchart-container square-chart">
                 <ResponsiveContainer width="100%" height="100%" >
                     <RadarChart margin={{ top: 0, right: 25, bottom: 0, left: 25 }} data={data}>
                         <PolarGrid radialLines={false}/>

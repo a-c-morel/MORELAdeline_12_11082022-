@@ -4,7 +4,7 @@ export default function UserScore({data}) {
 
     return (data === null) ? ( <div>Loading...</div>) 
     : (
-        <div className="piechart-container" data={data.pieChart}>
+        <div className="piechart-container square-chart" data={data.pieChart}>
             <h4>Score</h4>
                 <ResponsiveContainer width="100%" height="100%">
                 <PieChart margin={{top: 20}}>

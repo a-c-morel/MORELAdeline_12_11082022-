@@ -3,7 +3,7 @@ import energy from "../assets/energy.png"
 export default function CaloriesIntake({data}) {
     return (
         <div className="intake-element">
-            <div className="intake-img-energy__background">
+            <div className="intake-img-energy__background intake-img__background">
                 <img src={energy} alt="" className="intake-img-energy"/>
             </div>
             <div className="intake-text">

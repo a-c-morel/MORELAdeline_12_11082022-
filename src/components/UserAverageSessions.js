@@ -12,7 +12,7 @@ export default function UserAverageSessions({data}) {
 
         return (data === null) ? ( <div>Loading...</div>) 
         : (
-            <div className="linechart-container">
+            <div className="linechart-container square-chart">
                 <h4>Durée moyenne des sessions</h4>
                 <div className="linechart-graph">
                 <ResponsiveContainer width="100%" height="100%">
