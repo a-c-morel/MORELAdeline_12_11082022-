@@ -3,8 +3,8 @@ let urlDev = "../mockAPI.json"
 let urlProd = ""
 
 
-//Intake
-export default async function fetchIntakeData(id) {
+//Calories Intake
+export default async function fetchCaloriesIntakeData(id) {
     if(mode === "dev") {
       try {
         const response = await fetch(urlDev)
@@ -12,8 +12,8 @@ export default async function fetchIntakeData(id) {
         const data = json.usersGeneral
             .filter(userGeneral => parseFloat(id) === userGeneral.userId)
             .map(userGeneral => userGeneral.keyData)
-
-        console.log(data)
+        const caloriesData = data[0].calorieCount.toString()
+        return caloriesData
       } catch (error) {
           console.log("error", error)
       }
