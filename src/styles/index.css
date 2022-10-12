@@ -31,6 +31,7 @@
 
   header {
     width: 100%;
+    height: 8.89vh;
   }
 
   nav {
@@ -44,16 +45,15 @@
         -ms-flex-align: center;
             align-items: center;
     width: 100%;
-    padding-right: 4.04rem;
-    padding-left: 1.24rem;
-    font-size: 1.14rem;
+    height: 100%;
+    padding-right: 6.32%;
+    padding-left: 1.94%;
     background-color: var(--secondary-color);
     color: #ffffff;
-    height: 4.32rem;
   }
 
   .logo img {
-    height: 2.75rem;
+    height: 5.95vh;
     width: auto;
   }
 
@@ -63,17 +63,23 @@
     display: flex;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    width: 44.18rem;
+    width: 69.03%;
+    font-size: 1rem;
   }
+
+  /**********************************************************************/
 
   .container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-
-  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
     width: 100%;
+    height: 91.11328125vh;
+    /*overflow: hidden;*/
   }
 
   .home {
@@ -93,6 +99,11 @@
     height: 100%;
   }
 
+  main {
+    width: 91.875%;
+    height: 100%;
+  }
+
   aside {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -104,10 +115,10 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 5.2rem;
-    padding-top: 12.19rem;
-    padding-bottom: 2.81rem;
-    gap: 11.56rem; /*à modifier*/ 
+    width: 8.13%;
+    height: 100%;
+    padding-top: 10vh;
+    gap: 10vh;
     background-color: var(--secondary-color);
   }
 
@@ -119,7 +130,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 2.85rem;
+    width: 54.7%;
   }
 
   aside ul li img {
@@ -140,17 +151,22 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 2.8rem 4rem 2.8rem 4.76rem;
+    padding-top: 6.44vh;
+    padding-right: 6.802721088435374%;
+    padding-bottom: 8.39vh;
+    padding-left: 8.087679516250945%;
+    width: 100%;
+    height: 100%;
   }
 
   .greetings {
-    margin-bottom: 3.5rem;
+    margin-bottom: 7.51953125vh;
   }
 
   .greetings h2 {
     font-size: 2.29rem;
     font-weight: 500;
-    margin-bottom: 1.94rem;
+    margin-bottom: 4.00390625vh;
   }
 
   .greetings h2 span {
@@ -162,18 +178,22 @@
     font-weight: 400;
   }
 
+  .charts {
+    width: 63.11413454270597%;
+  }
+
   .barchart-container {
-    width: 37.11rem;
-    height: 15.22rem;
+    width: 100%;
+    height: 31.25vh;
     background-color: var(--third-color);
     border-radius: var(--main-radius);
   }
 
   .barchart-container h4 {
     font-size: .71rem;
-    padding-top: 1.14rem;
-    padding-left: 1.42rem;
-    margin-bottom: 3.07rem;
+    padding-top: 2.34375vh;
+    padding-left: 3.832335329341317%;
+    margin-bottom: 6.25vh;
   }
 
   .custom-tooltip_barchart {
@@ -194,13 +214,13 @@
   }
 
   .square-charts_container {
-    width: 37.07rem;
-    height: 12.61rem;
-    margin-top: 1.43rem;
+    width: 100%;
+    height: 19.87906273620559vh;
+    margin-top: 2.9296875vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 1.33rem
+    gap: 3.592814371257485%;
   }
 
   .square-chart {
@@ -210,8 +230,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 11.47rem;
-    height: 12.61rem;
+    width: 30.89820359281437%;
+    height: 100%;
     border-radius: var(--main-radius);
   }
 
@@ -226,16 +246,16 @@
   .linechart-container h4 {
     -ms-flex-item-align: start;
         align-self: start;
-    padding-top: 1.38rem;
-    padding-left: 1.51rem;
-    width: 6.58rem;
+    padding-top: 2.83203125vh;
+    padding-left: 13.17829457364341%;
+    width: 57.36434108527132%;
     color: #ffffff8e;
-    font-size: 0.71rem
+    font-size: 0.5rem
   }
 
   .linechart-graph {
-    height: 9.61rem;
-    width: 10.31rem;
+    height: 16.5751953125vh;
+    width: 88.75968992248062%;
   }
 
   .custom-tooltip_linechart {
@@ -298,9 +318,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin-top: 9.6rem;
-    margin-left: 1.38rem;
-    gap: 1.86rem
+    margin-top: 16.2109375vh;
+    margin-left: 8.179419525065963%;
+    gap: 3.80859375vh
   }
 
   .intake-element {
@@ -313,7 +333,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 11.47rem;
+    width: 96.4203233256351%;
     height: 5.9rem;
     background-color: #FBFBFB;
     border-radius: var(--main-radius);
