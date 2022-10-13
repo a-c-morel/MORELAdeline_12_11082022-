@@ -151,12 +151,17 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding-top: 6.44vh;
     padding-right: 6.802721088435374%;
     padding-bottom: 8.39vh;
     padding-left: 8.087679516250945%;
+    /*min-width: 50.044rem;*/
     width: 100%;
     height: 100%;
+    gap: 2.758007117437722%
   }
 
   .greetings {
@@ -179,7 +184,8 @@
   }
 
   .charts {
-    width: 63.11413454270597%;
+    width: 100%;
+    min-width: 37.111rem;
   }
 
   .barchart-container {
@@ -277,7 +283,7 @@
     background-color: #282D30;
     color: #ffffff;
     text-transform: capitalize;
-    font-size: 7px;
+    font-size: .44rem;
   }
 
   .piechart-container {
@@ -291,14 +297,14 @@
 
   .piechart-container h4 {
     position: absolute;
-    top: 1.14rem;
-    left: 1.33rem;
+    top: 9.125475285171103%;
+    left: 11.62790697674419%;
     font-size: .71rem;
   }
 
   .piechart-legend {
     position: absolute;
-    top: 5.10rem;
+    top: 40.74904942965779%;
     text-align: center;
     z-index: 2;
     font-size: 1.1rem;
@@ -318,9 +324,12 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin-top: 16.2109375vh;
-    margin-left: 8.179419525065963%;
-    gap: 3.80859375vh
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 22.95373665480427%;
+    /*margin-top: 16.2109375vh;*/
+    gap: 3.3vh
   }
 
   .intake-element {
@@ -334,10 +343,10 @@
         -ms-flex-align: center;
             align-items: center;
     width: 96.4203233256351%;
-    height: 5.9rem;
+    height: 12.109375vh;
     background-color: #FBFBFB;
     border-radius: var(--main-radius);
-    gap: 1.07rem
+    gap: 3.80859375vh
   }
 
   .intake-img__background {
@@ -350,7 +359,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 2.76rem;
+    width: 23.25581395348837%;
     height: 2.76rem;
     border-radius: .38rem;
   }
@@ -402,7 +411,7 @@
   }
 
   .intake-text__value {
-    font-size: .95rem;
+    font-size: .8rem;
     font-weight: bold;
   }
 
@@ -410,46 +419,9 @@
     font-size: .67rem;
   }
 
-  /*wireframes dimensions : 1440 x 1024 px*/
-  /*@media only screen and (min-width: 1440px) and (min-height: 1024px) {
-    nav {
-      padding-right: 5.5rem;
-      padding-left: 1.75rem;
-      font-size: 1.5rem;
-      height: 5.69rem;
-    }
-
-    .logo img {
-      height: 3.81rem;
-    }
-
-    .navigation {
-      width: 62.13rem;
-    }
-
-    .container {
-      height: 58.31rem;
-    }
-
-    aside {
-      width: 7.31rem;
-      padding-top: 16rem; 
-      gap: 14.56rem;
-      background-color: var(--secondary-color);
-    }
-
-    aside ul {
-      width: 4rem;
-    }
-
-    aside p {
-      -webkit-transform: rotate(-90deg) translateX(-4.31rem);
-          -ms-transform: rotate(-90deg) translateX(-4.31rem);
-              transform: rotate(-90deg) translateX(-4.31rem);
-      font-size: .75rem;
-    }
-
-    .dashboard-container {
-      padding: 4.25rem 5.63rem 5.38rem 6.69rem;
-    }
-}*/
+  
+/*@media only screen and (min-width: 1920px) and (min-height: 1080px) {}*/
+/*@media only screen and (min-width: 1600px) and (min-height: 900px) {}*/
+/*@media only screen and (min-width: 1536px) and (min-height: 864px) {}*/
+/*@media only screen and (min-width: 1440px) and (min-height: 900px) {}*/
+/*@media only screen and (min-width: 1280px) and (min-height: 800px) {}*/
