@@ -359,8 +359,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 23.25581395348837%;
-    height: 2.76rem;
+    width: 30.25581395348837%;
+    height: 45.38709677419355%;
     border-radius: .38rem;
   }
 
@@ -419,9 +419,84 @@
     font-size: .67rem;
   }
 
-  
+@media only screen and (min-width: 1280px) and (min-height: 800px) {
+  aside{
+    gap: 30vh
+  }
+  .greetings {
+    margin-bottom: 6.519531vh;
+  }
+  .greetings h2 {
+    margin-bottom: 3.003906vh;
+  }
+  .barchart-container {
+    height: 29.25vh
+  }
+  .square-charts_container {
+    height: 25.879063vh;
+    gap: 4.592814%;
+  }
+}
+
+@media only screen and (min-width: 1440px) and (min-height: 900px) {
+  aside p {
+    font-size: .75rem;
+  }
+}
+
+@media only screen and (min-width: 1536px) and (min-height: 864px) {
+  .intake {
+    width: 27.953737%;
+  }
+  .intake-img__background {
+    height: 60.387097%;
+  }
+  .intake-img-energy {
+    width: 1rem;
+    height: 1.25rem;
+  }
+  .intake-img-proteins {
+    width: 1.24rem;
+    height: 1.29rem;
+  }
+  .intake-img-carb {
+    width: 1.05rem;
+    height: 1.25rem;
+  }
+  .intake-img-lipid {
+    width: 1.19rem;
+    height: 1.19rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (min-height: 900px) {
+  .navigation {
+    font-size: 1.3rem;
+  }
+  .square-charts_container {
+    gap: 5.592814%;
+  }
+  .greetings h2 {
+    font-size: 2.5rem;
+  }
+  .greetings h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+  .barchart-container h4 {
+    font-size: 1rem;
+  }
+  .intake-text__value {
+    font-size: 1rem;
+  }
+  .intake-text__type {
+    font-size: .75rem;
+  }
+}
+
 /*@media only screen and (min-width: 1920px) and (min-height: 1080px) {}*/
-/*@media only screen and (min-width: 1600px) and (min-height: 900px) {}*/
-/*@media only screen and (min-width: 1536px) and (min-height: 864px) {}*/
-/*@media only screen and (min-width: 1440px) and (min-height: 900px) {}*/
-/*@media only screen and (min-width: 1280px) and (min-height: 800px) {}*/
+
+
+
+
+
