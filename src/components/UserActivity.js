@@ -1,4 +1,5 @@
 import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer} from "recharts"
+import { useState, useEffect } from "react"
 
 export default function UserActivity({data}) {
 
@@ -10,23 +11,52 @@ export default function UserActivity({data}) {
             </div>
         ) : (null)
     }
+    
+    const [width, setWidth] = useState(window.innerWidth);
+    const [height, setHeight] = useState(window.innerHeight);
+      
+    useEffect(() => {
+    const handleWindowResize = () => {
+        setWidth(window.innerWidth);
+        setHeight(window.innerHeight);
+    }
 
-        return (data === null) ? ( <div>Loading...</div>) 
-        : (
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+    }, [width, height])
+
+    if (data === null) {
+        return ( <div>Loading...</div>)
+    } else if (width < 1280 && height < 800) { return (
             <div className="barchart-container">
                 <h4>Activité quotidienne</h4>
                 <ResponsiveContainer width="100%" height={158}>
                     <BarChart title="Activité quotidienne" data={data[0]} margin={{left: 32, bottom: 21, right: 21}}>
                         <Legend align="right" wrapperStyle={{top: -63, right: 19, fontSize: ".67rem"}} iconSize= "8" iconType="circle"/>
                         <CartesianGrid strokeDasharray="2 1" vertical={false} />
-                        <XAxis dy={15} padding={{ right: -32, left: -32 }} axisLine={{stroke:"#DEDEDE"}} tickLine={false} dataKey="name" />
-                        <YAxis dx={30} axisLine={false} tickLine={false} orientation="right" tickCount="3" />
+                        <XAxis dy={15} padding={{ right: -32, left: -32 }} axisLine={{stroke:"#DEDEDE"}} tickLine={false} tick={{ fontSize: '.75rem' }} dataKey="name" />
+                        <YAxis dx={30} axisLine={false} tickLine={false} tick={{ fontSize: '.75rem' }} orientation="right" tickCount="3" />
                         <Tooltip content={<CustomTooltip />} wrapperStyle={{width: "2.44rem", height: "3.94rem", outline: "none", backgroundColor: "#FF0000"}} />
                         <Bar barSize={7} dataKey="Poids (kg)" fill="#282D30" radius={[3, 3, 0, 0]} />
                         <Bar barSize={7} dataKey="Calories brûlées (kCal)" fill="#FF0000" radius={[3, 3, 0, 0]}/>
                     </BarChart>
                 </ResponsiveContainer>
             </div>
-            
         )
-    }
+    } else if (width > 1280 && height > 800) { return (
+        <div className="barchart-container">
+                <h4>Activité quotidienne</h4>
+                <ResponsiveContainer width="100%" height={165}>
+                    <BarChart title="Activité quotidienne" data={data[0]} margin={{left: 32, bottom: 21, right: 21}}>
+                        <Legend align="right" wrapperStyle={{top: -63, right: 19, fontSize: ".67rem"}} iconSize= "8" iconType="circle"/>
+                        <CartesianGrid strokeDasharray="2 1" vertical={false} />
+                        <XAxis dy={15} padding={{ right: -32, left: -32 }} axisLine={{stroke:"#DEDEDE"}} tickLine={false} tick={{ fontSize: '.75rem' }} dataKey="name" />
+                        <YAxis dx={30} axisLine={false} tickLine={false} tick={{ fontSize: '.75rem' }} orientation="right" tickCount="3" />
+                        <Tooltip content={<CustomTooltip />} wrapperStyle={{width: "2.44rem", height: "3.94rem", outline: "none", backgroundColor: "#FF0000"}} />
+                        <Bar barSize={7} dataKey="Poids (kg)" fill="#282D30" radius={[3, 3, 0, 0]} />
+                        <Bar barSize={7} dataKey="Calories brûlées (kCal)" fill="#FF0000" radius={[3, 3, 0, 0]}/>
+                    </BarChart>
+                </ResponsiveContainer>
+            </div>
+    ) } else { return (<div>autres dimensions</div>)}
+}
