@@ -30,7 +30,7 @@ export default function UserActivity({data}) {
     } else if (width < 1280 && height < 800) { return (
             <div className="barchart-container">
                 <h4>Activité quotidienne</h4>
-                <ResponsiveContainer width="100%" height={158}>
+                <ResponsiveContainer width="100%" height={170}>
                     <BarChart title="Activité quotidienne" data={data[0]} margin={{left: 32, bottom: 21, right: 21}}>
                         <Legend align="right" wrapperStyle={{top: -63, right: 19, fontSize: ".67rem"}} iconSize= "8" iconType="circle"/>
                         <CartesianGrid strokeDasharray="2 1" vertical={false} />
@@ -43,7 +43,7 @@ export default function UserActivity({data}) {
                 </ResponsiveContainer>
             </div>
         )
-    } else if (width > 1280 && height > 800) { return (
+    } else if (width < 1440 && height < 900) { return (
         <div className="barchart-container">
                 <h4>Activité quotidienne</h4>
                 <ResponsiveContainer width="100%" height={165}>

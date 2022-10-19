@@ -117,8 +117,8 @@
             align-items: center;
     width: 8.13%;
     height: 100%;
-    padding-top: 10vh;
-    gap: 10vh;
+    padding-top: 28vh;
+    gap: 18vh;
     background-color: var(--secondary-color);
   }
 
@@ -221,7 +221,7 @@
 
   .square-charts_container {
     width: 100%;
-    height: 19.87906273620559vh;
+    height: 22.29vh;
     margin-top: 2.9296875vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -280,6 +280,7 @@
   }
 
   .radarchart-container {
+    padding-right: .69rem;
     background-color: #282D30;
     color: #ffffff;
     text-transform: capitalize;
@@ -292,7 +293,7 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background-color: #FBFBFB;
+    background-color: #FBFBFB
   }
 
   .piechart-container h4 {
@@ -328,25 +329,24 @@
         -ms-flex-pack: end;
             justify-content: flex-end;
     width: 22.95373665480427%;
-    /*margin-top: 16.2109375vh;*/
-    gap: 3.3vh
+    gap: 3.3vh;
   }
 
   .intake-element {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     width: 96.4203233256351%;
-    height: 12.109375vh;
+    height: 11.7vh;
     background-color: #FBFBFB;
     border-radius: var(--main-radius);
-    gap: 3.80859375vh
+    padding: 1.42rem;
   }
 
   .intake-img__background {
@@ -360,7 +360,7 @@
         -ms-flex-align: center;
             align-items: center;
     width: 30.25581395348837%;
-    height: 45.38709677419355%;
+    height: 70.387097%;
     border-radius: .38rem;
   }
 
@@ -419,9 +419,19 @@
     font-size: .67rem;
   }
 
+@media only screen and (min-width: 1101px) {
+  aside {
+    padding-top: 26vh;
+    gap: 16vh
+  }
+}
+
 @media only screen and (min-width: 1280px) and (min-height: 800px) {
   aside{
-    gap: 30vh
+    gap: 17vh
+  }
+  aside p {
+    font-size: .6rem;
   }
   .greetings {
     margin-bottom: 6.519531vh;
@@ -435,6 +445,19 @@
   .square-charts_container {
     height: 25.879063vh;
     gap: 4.592814%;
+  }
+  .linechart-container h4 {
+    font-size: .75rem;
+  }
+  .radarchart-container {
+    padding-right: .69rem;
+    font-size: .55rem;
+  }
+  .piechart-container h4 {
+    font-size: .75rem;
+  }
+  .intake {
+    gap: 3.9vh;
   }
 }
 
