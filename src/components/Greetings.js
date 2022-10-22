@@ -1,8 +1,11 @@
 import PropTypes from "prop-types"
 
-export default function Greetings({data}) {
-
-    const [name] = data.map(userGeneral => userGeneral.userInfos.firstName)
+/**
+ * 
+ * @param {string} name Name of the user
+ * @returns a div with greetings and encouragements in french, using the name of the user
+ */
+export default function Greetings({name}) {
 
     return (name === undefined) ? (
         <div className="greetings">

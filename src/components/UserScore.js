@@ -1,6 +1,13 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
+import PropTypes from "prop-types"
 
+/**
+ * 
+ * @param {array of objects} data - Formatted data for Recharts PieChart component
+ * (see https://recharts.org/en-US/api/PieChart for more details about the data format)
+ * @returns a div containing a title, a pie chart component imported from recharts, and a div containing the score
+ */
 export default function UserScore({data}) {
 
     const [width, setWidth] = useState(window.innerWidth)
@@ -56,4 +63,12 @@ export default function UserScore({data}) {
             </div>
         )
     }
+}
+
+UserScore.propTypes = {
+    data: PropTypes.array.isRequired
+}
+
+UserScore.defaultProps = {
+    data: 'erreur',
 }

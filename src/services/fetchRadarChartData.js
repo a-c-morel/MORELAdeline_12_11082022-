@@ -2,13 +2,20 @@ let mode = "dev"
 let urlDev = "../mockAPI.json"
 let urlProd = ""
 
+
+/**
+ * 
+ * @param {string} id - User's id
+ * @returns an array of objects, with data formatted for RadarChart component
+ * (see https://recharts.org/en-US/api/RadarChart for more details about the requested data format)
+ */
 export default async function fetchRadarChartData(id) {
     if(mode === "dev") {
       try {
         const response = await fetch(urlDev)
         const json = await response.json()
         let data = json.usersPerformance.filter(userPerformance => parseFloat(id) === userPerformance.userId)
-        // ⬆ toute la data de performance de l'utilisateur choisi
+        // ⬆ performance data of the user matching with the id
         let kind = data[0].kind
         // ⬆ {"1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity"}
         let dataArray = data[0].data.reverse()

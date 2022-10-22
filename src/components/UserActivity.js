@@ -1,8 +1,23 @@
 import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer} from "recharts"
 import { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 
+/**
+ * 
+ * @param {array containing objects} data - Formatted data for Recharts Barchart component
+ * (see https://recharts.org/en-US/api/BarChart for more details about the data format)
+ * @returns a div containing a title and a bar chart component imported from recharts, with a customized tooltip. 
+ */
 export default function UserActivity({data}) {
 
+    /**
+     * 
+     * @param {boolean} active - If set true, the tooltip is displayed. If set false, the tooltip is hidden, usually calculated internally
+     * (see https://recharts.org/en-US/api/Tooltip#active for more information)
+     * @param {array} payload - The source data of the content to be displayed in the tooltip, usually calculated internally
+     * (see https://recharts.org/en-US/api/Tooltip#payload for more information)
+     * @returns a div showing kg and KCal values
+     */
     const CustomTooltip = ({ active, payload }) => {
         return (active && payload && payload.length) ? (
             <div className="custom-tooltip_barchart">
@@ -19,9 +34,10 @@ export default function UserActivity({data}) {
     const [legendTop, setLegendTop] = useState(-63)
       
     useEffect(() => {
-    const handleWindowResize = () => {
-        setWidth(window.innerWidth)
-        setHeight(window.innerHeight);
+        
+        const handleWindowResize = () => {
+            setWidth(window.innerWidth)
+            setHeight(window.innerHeight);
         if (width < 1280) {
             setResponsiveContainerHeight(170)
             setLegendFontSize(".67rem")
@@ -67,4 +83,12 @@ export default function UserActivity({data}) {
             </div>
         )
     }
+}
+
+UserActivity.propTypes = {
+    data: PropTypes.array.isRequired
+}
+
+UserActivity.defaultProps = {
+    data: 'erreur',
 }

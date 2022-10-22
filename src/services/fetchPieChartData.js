@@ -2,18 +2,22 @@ let mode = "dev"
 let urlDev = "../mockAPI.json"
 let urlProd = ""
 
-//Score (PieChart) ⬇
+/**
+ * 
+ * @param {string} id - User's id
+ * @returns an array of objects, with data formatted for PieChart component
+ * (see https://recharts.org/en-US/api/PieChart for more details about the requested data format) 
+ */
 export default async function fetchPieChartData(id) {
     if(mode === "dev") {
       try {
         const response = await fetch(urlDev)
         const json = await response.json()
         const data = json.usersGeneral.filter(userGeneral => parseFloat(id) === userGeneral.userId)
-        // ⬆ toute la data de performance de l'utilisateur choisi
         const scoreData = data[0].todayScore
-        // ⬆ score de l'utilisateur (en floatnumber)
+        // ⬆ user'score (floatnumber)
         const percentageScore = scoreData * 100
-        // ⬆ score de l'utilisateur converti en pourcentage
+        // ⬆ user's score converted to percentage
   
         const pieChartData= {
           pieChart: [
@@ -44,7 +48,7 @@ export default async function fetchPieChartData(id) {
       }
     } else {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint avec l'id
+        const response = await fetch(urlProd) // ⬅ endPoint with the id
         const json = await response.json()
         return json
       } catch (error) {

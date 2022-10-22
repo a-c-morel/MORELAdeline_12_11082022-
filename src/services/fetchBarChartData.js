@@ -2,7 +2,12 @@ let mode = "dev"
 let urlDev = "../mockAPI.json"
 let urlProd = ""
 
-//User Activity (BarChart) ⬇
+/**
+ * 
+ * @param {string} id - User's id
+ * @returns an array of objects, with data formatted for BarChart component
+ * (see https://recharts.org/en-US/api/BarChart for more details about the requested data format)
+ */
 export default async function fetchBarChartData(id) {
     if (mode === "dev") {
       try {
@@ -26,7 +31,7 @@ export default async function fetchBarChartData(id) {
       }
     } else {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint avec l'id
+        const response = await fetch(urlProd) // ⬅ endPoint with the id
         const json = await response.json()
         return json
       } catch (error) {

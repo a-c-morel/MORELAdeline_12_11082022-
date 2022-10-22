@@ -20,9 +20,11 @@ import CaloriesIntake from "../components/CaloriesIntake"
 import ProteinsIntake from "../components/ProteinsIntake"
 import CarbIntake from "../components/CarbIntake"
 import LipidsIntake from "../components/LipidsIntake"
-//import apple from "../assets/apple.png"
-//import cheeseburger from "../assets/cheeseburger.png"
 
+/**
+ * 
+ * @returns a div containing the main content of the app (Greetings, Recharts components)
+ */
 export default function Dashboard() {
   
   const [greetingsData, setGreetingsData] = useState(null)
@@ -72,7 +74,7 @@ export default function Dashboard() {
   ) : (
     <div className="dashboard-container">
       <div className="charts">
-        <Greetings data={greetingsData} />
+        <Greetings name={greetingsData} />
         <UserActivity data={barChartData} />
         <div className="square-charts_container">
           <UserAverageSessions data={lineChartData} />
@@ -81,10 +83,10 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="intake">
-        <CaloriesIntake data={caloriesIntakeData} />
-        <ProteinsIntake data={proteinsIntakeData} />
-        <CarbIntake data={carbIntakeData} />
-        <LipidsIntake data={lipidsIntakeData} />
+        <CaloriesIntake amountOfCalories={caloriesIntakeData} />
+        <ProteinsIntake amountOfProteins={proteinsIntakeData} />
+        <CarbIntake amountOfCarbs={carbIntakeData} />
+        <LipidsIntake amountOfLipids={lipidsIntakeData} />
       </div>
     </div>
   )

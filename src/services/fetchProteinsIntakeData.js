@@ -3,7 +3,11 @@ let urlDev = "../mockAPI.json"
 let urlProd = ""
 
 
-//Proteins Intake
+/**
+ * 
+ * @param {string} id - User's id
+ * @returns a string which is the amount of proteins of the user 
+ */
 export default async function fetchProteinsIntakeData(id) {
     if(mode === "dev") {
       try {
@@ -19,7 +23,7 @@ export default async function fetchProteinsIntakeData(id) {
       }
     } else {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint avec l'id
+        const response = await fetch(urlProd) // ⬅ endPoint with the id
         const json = await response.json()
         return json
       } catch (error) {

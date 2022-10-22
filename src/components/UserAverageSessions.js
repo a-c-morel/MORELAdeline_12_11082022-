@@ -1,8 +1,23 @@
 import {LineChart,Tooltip, XAxis, YAxis, Line, ResponsiveContainer} from "recharts"
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
+import PropTypes from "prop-types"
 
+/**
+ * 
+ * @param {array of objects} data - Formatted data for Recharts LineChart component
+ * (see https://recharts.org/en-US/api/LineChart for more details about the data format)
+ * @returns a div containing a title and a line chart component imported from recharts, with a customized tooltip.
+ */
 export default function UserAverageSessions({data}) {
 
+    /**
+     * 
+     * @param {boolean} active - If set true, the tooltip is displayed. If set false, the tooltip is hidden, usually calculated internally
+     * (see https://recharts.org/en-US/api/Tooltip#active for more information)
+     * @param {array} payload - The source data of the content to be displayed in the tooltip, usually calculated internally
+     * (see https://recharts.org/en-US/api/Tooltip#payload for more information)
+     * @returns a div displaying the duration of the session (example : "50 min")
+     */
     const CustomTooltip = ({ active, payload }) => {
         return (active && payload && payload.length) ? (
             <div className="custom-tooltip_linechart">
@@ -51,4 +66,12 @@ export default function UserAverageSessions({data}) {
             </div>
         )
     }
+}
+
+UserAverageSessions.propTypes = {
+    data: PropTypes.array.isRequired
+}
+
+UserAverageSessions.defaultProps = {
+    data: 'erreur',
 }

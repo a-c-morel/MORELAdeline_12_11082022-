@@ -2,7 +2,12 @@ let mode = "dev"
 let urlDev = "../mockAPI.json"
 let urlProd = ""
 
-//User Average Sessions (LineChart) ⬇
+/**
+ * 
+ * @param {string} id- User's id
+ * @returns an array of objects, with data formatted for LineChart component
+ * (see https://recharts.org/en-US/api/LineChart for more details about the requested data format)
+ */
 export default async function fetchLineChartData(id) {
     if (mode === "dev") {
       try {
@@ -25,7 +30,7 @@ export default async function fetchLineChartData(id) {
       }
     } else {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint avec l'id
+        const response = await fetch(urlProd) // ⬅ endPoint with the id
         const json = await response.json()
         return json
       } catch (error) {
