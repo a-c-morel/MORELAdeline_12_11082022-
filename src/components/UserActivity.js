@@ -14,25 +14,48 @@ export default function UserActivity({data}) {
     
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
+    const [responsiveContainerHeight, setResponsiveContainerHeight] = useState(170)
+    const [legendFontSize, setLegendFontSize] = useState(".67rem")
+    const [legendTop, setLegendTop] = useState(-63)
       
     useEffect(() => {
     const handleWindowResize = () => {
-        setWidth(window.innerWidth);
+        setWidth(window.innerWidth)
         setHeight(window.innerHeight);
+        if (width < 1280) {
+            setResponsiveContainerHeight(170)
+            setLegendFontSize(".67rem")
+        } else if (width < 1440) {
+            setResponsiveContainerHeight(165)
+            setLegendFontSize(".7rem")
+        } else {
+            setResponsiveContainerHeight(190)
+            setLegendFontSize(".88rem")
+        }
+
+        if (height < 850) {
+            setLegendTop(-63)
+        } else if (height < 900) {
+            setLegendTop(-74)
+        } else {
+            setLegendTop(-79)
+        }
     }
 
     window.addEventListener("resize", handleWindowResize);
+
     return () => window.removeEventListener("resize", handleWindowResize);
-    }, [width, height])
+
+    }, [width, height, responsiveContainerHeight, legendFontSize, legendTop])
 
     if (data === null) {
         return ( <div>Loading...</div>)
-    } else if (width < 1280 && height < 800) { return (
+    } else { return (
             <div className="barchart-container">
                 <h4>Activité quotidienne</h4>
-                <ResponsiveContainer width="100%" height={170}>
+                <ResponsiveContainer width="100%" height={responsiveContainerHeight}>
                     <BarChart title="Activité quotidienne" data={data[0]} margin={{left: 32, bottom: 21, right: 21}}>
-                        <Legend align="right" wrapperStyle={{top: -63, right: 19, fontSize: ".67rem"}} iconSize= "8" iconType="circle"/>
+                        <Legend align="right" wrapperStyle={{top: legendTop, right: 19, fontSize: legendFontSize}} iconSize= "8" iconType="circle"/>
                         <CartesianGrid strokeDasharray="2 1" vertical={false} />
                         <XAxis dy={15} padding={{ right: -32, left: -32 }} axisLine={{stroke:"#DEDEDE"}} tickLine={false} tick={{ fontSize: '.75rem' }} dataKey="name" />
                         <YAxis dx={30} axisLine={false} tickLine={false} tick={{ fontSize: '.75rem' }} orientation="right" tickCount="3" />
@@ -43,20 +66,5 @@ export default function UserActivity({data}) {
                 </ResponsiveContainer>
             </div>
         )
-    } else if (width < 1440 && height < 900) { return (
-        <div className="barchart-container">
-                <h4>Activité quotidienne</h4>
-                <ResponsiveContainer width="100%" height={165}>
-                    <BarChart title="Activité quotidienne" data={data[0]} margin={{left: 32, bottom: 21, right: 21}}>
-                        <Legend align="right" wrapperStyle={{top: -63, right: 19, fontSize: ".67rem"}} iconSize= "8" iconType="circle"/>
-                        <CartesianGrid strokeDasharray="2 1" vertical={false} />
-                        <XAxis dy={15} padding={{ right: -32, left: -32 }} axisLine={{stroke:"#DEDEDE"}} tickLine={false} tick={{ fontSize: '.75rem' }} dataKey="name" />
-                        <YAxis dx={30} axisLine={false} tickLine={false} tick={{ fontSize: '.75rem' }} orientation="right" tickCount="3" />
-                        <Tooltip content={<CustomTooltip />} wrapperStyle={{width: "2.44rem", height: "3.94rem", outline: "none", backgroundColor: "#FF0000"}} />
-                        <Bar barSize={7} dataKey="Poids (kg)" fill="#282D30" radius={[3, 3, 0, 0]} />
-                        <Bar barSize={7} dataKey="Calories brûlées (kCal)" fill="#FF0000" radius={[3, 3, 0, 0]}/>
-                    </BarChart>
-                </ResponsiveContainer>
-            </div>
-    ) } else { return (<div>autres dimensions</div>)}
+    }
 }

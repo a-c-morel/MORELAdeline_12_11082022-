@@ -18,7 +18,7 @@ export default function UserPerformance({data}) {
 
     if (data === null) {
         return ( <div>Loading...</div>)
-    } else if (width < 1440 && height < 900) {
+    } else {
         return (
             <div className="radarchart-container square-chart">
                 <ResponsiveContainer width="100%" height="100%" >
@@ -31,5 +31,5 @@ export default function UserPerformance({data}) {
                 </ResponsiveContainer>
             </div>
         )
-    } else { return (<div>autres dimensions</div>) }
+    }
 }

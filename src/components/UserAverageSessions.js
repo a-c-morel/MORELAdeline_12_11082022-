@@ -11,52 +11,44 @@ export default function UserAverageSessions({data}) {
         ) : (null)
     }
 
-    const [width, setWidth] = useState(window.innerWidth);
-    const [height, setHeight] = useState(window.innerHeight);
+    const [width, setWidth] = useState(window.innerWidth)
+    const [height, setHeight] = useState(window.innerHeight)
+    const [tickFontSize, setTickFontSize] = useState(".57rem")
       
     useEffect(() => {
     const handleWindowResize = () => {
-        setWidth(window.innerWidth);
-        setHeight(window.innerHeight);
+        setWidth(window.innerWidth)
+        setHeight(window.innerHeight)
+        if (width < 1280 && height < 800) {
+            setTickFontSize(".57rem")
+        } else if (width < 1440 && height < 900) {
+            setTickFontSize(".6rem")
+        } else if (width >= 1440) {
+            setTickFontSize(".75rem")
+        }
     }
 
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
-    }, [width, height])
+    window.addEventListener("resize", handleWindowResize)
+    return () => window.removeEventListener("resize", handleWindowResize)
+    }, [width, height, tickFontSize])
 
     if (data === null) {
         return ( <div>Loading...</div>)
-    } else if (width < 1280 && height < 800) {
-        return (
-            <div className="linechart-container square-chart">
-                <h4>Durée moyenne des sessions</h4>
-                <div className="linechart-graph">
-                <ResponsiveContainer width="100%" height="90%">
-                    <LineChart data={data[0]} fill="#FF0000">
-                        <XAxis tickSize="0" axisLine={false} dataKey="name" tick={{ fill: "#ffffff8e", fontSize:".57rem", transform: "translate(0, 20)" }}/>
-                        <YAxis unit="min" hide={true} tickSize="0" axisLine={false} dataKey="min"/>
-                        <Tooltip content={<CustomTooltip />} wrapperStyle={{outline: "none", width: "2.44rem", height: "1.5rem", backgroundColor: "#ffffff"}} cursor={{ stroke: '#0202030a', strokeWidth: 79 }} />
-                        <Line type="natural" dataKey="min" stroke="#ffffff8e" strokeWidth={2} dot={false} />
-                    </LineChart>
-                </ResponsiveContainer>
-                </div>
-            </div>
-        )
-    } else if (width < 1440 && height < 900) {
+    } else {
         return (
             <div className="linechart-container square-chart">
                 <h4>Durée moyenne des sessions</h4>
                 <div className="linechart-graph">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data[0]} fill="#FF0000">
-                        <XAxis tickSize="0" axisLine={false} dataKey="name" tick={{ fill: "#ffffff8e", fontSize:".57rem", transform: "translate(0, 20)" }}/>
+                        <XAxis tickSize="0" axisLine={false} dataKey="name" tick={{ fill: "#ffffff8e", fontSize: tickFontSize, transform: "translate(0, 22)" }}/>
                         <YAxis unit="min" hide={true} tickSize="0" axisLine={false} dataKey="min"/>
-                        <Tooltip content={<CustomTooltip />} wrapperStyle={{outline: "none", width: "2.44rem", height: "1.5rem", backgroundColor: "#ffffff"}} cursor={{ stroke: '#0202030a', strokeWidth: 79 }} />
+                        <Tooltip content={<CustomTooltip />} wrapperStyle={{outline: "none", width: "2.44rem", height: "1.5rem", backgroundColor: "#ffffff"}} cursor={{ stroke: '#0202030a', strokeWidth: 50 }} />
                         <Line type="natural" dataKey="min" stroke="#ffffff8e" strokeWidth={2} dot={false} />
                     </LineChart>
                 </ResponsiveContainer>
                 </div>
             </div>
         )
-    } else { return (<div>autres dimensions</div>) }
+    }
 }

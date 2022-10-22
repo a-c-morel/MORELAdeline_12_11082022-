@@ -158,10 +158,22 @@
     padding-right: 6.802721088435374%;
     padding-bottom: 8.39vh;
     padding-left: 8.087679516250945%;
-    /*min-width: 50.044rem;*/
     width: 100%;
     height: 100%;
     gap: 2.758007117437722%
+  }
+
+  .charts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 
   .greetings {
@@ -246,6 +258,10 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 2.15vh;
     background-color: var(--primary-color);
   }
 
@@ -314,6 +330,7 @@
 
   .piechart-legend p {
     font-size: .76rem;
+    max-width: 5rem;
     color: #74798C;
   }
 
@@ -328,7 +345,7 @@
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    width: 22.95373665480427%;
+    width: 25.95373665480427%;
     gap: 3.3vh;
   }
 
@@ -359,8 +376,9 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 30.25581395348837%;
-    height: 70.387097%;
+    width: 2.76rem;
+    min-width: 2.76rem;
+    height: 2.76rem;
     border-radius: .38rem;
   }
 
@@ -417,6 +435,7 @@
 
   .intake-text__type {
     font-size: .67rem;
+    color: #74798C
   }
 
 @media only screen and (min-width: 1101px) {
@@ -442,6 +461,9 @@
   .barchart-container {
     height: 29.25vh
   }
+  .barchart-container h4 {
+    font-size: .94rem
+  }
   .square-charts_container {
     height: 25.879063vh;
     gap: 4.592814%;
@@ -462,8 +484,66 @@
 }
 
 @media only screen and (min-width: 1440px) and (min-height: 900px) {
+  .navigation {
+    font-size: 1.5rem
+  }
+  aside {
+    gap: 16vh
+  }
   aside p {
     font-size: .75rem;
+  }
+  .greetings h2 {
+    font-size: 3rem
+  }
+  .greetings h3 {
+    font-size: 1.125rem
+  }
+  .piechart-container h4 {
+    font-size: .94rem;
+  }
+  .piechart-legend {
+    font-size: 1.5rem;
+  }
+  .piechart-legend p {
+    font-size: 1rem;
+  }
+  .intake {
+    width: 31%;
+    gap: 2.3vh
+  }
+  .intake-element {
+    height: 12.7vh;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 1.5rem
+  }
+  .intake-img__background {
+    height: 3.75rem;
+    width: 3.75rem
+  }
+  .intake-img-energy {
+    width: .99rem;
+    height: 1.25rem;
+  }
+  .intake-img-proteins {
+    width: 1.18rem;
+    height: 1.17rem;
+  }
+  .intake-img-carb {
+    width: 1.05rem;
+    height: 1.25rem;
+  }
+  .intake-img-lipid {
+    width: 1.25rem;
+    height: 1.17rem;
+  }
+  .intake-text__value {
+    font-size: 1.25rem;
+  }
+  .intake-text__type {
+    font-size: .88rem;
   }
 }
 
@@ -472,7 +552,8 @@
     width: 27.953737%;
   }
   .intake-img__background {
-    height: 60.387097%;
+    width: 3.58rem;
+    height: 3.58rem
   }
   .intake-img-energy {
     width: 1rem;
@@ -493,21 +574,15 @@
 }
 
 @media only screen and (min-width: 1600px) and (min-height: 900px) {
-  .navigation {
-    font-size: 1.3rem;
-  }
-  .square-charts_container {
-    gap: 5.592814%;
-  }
-  .greetings h2 {
-    font-size: 2.5rem;
-  }
   .greetings h3 {
     font-size: 1.3rem;
     font-weight: 400;
   }
   .barchart-container h4 {
     font-size: 1rem;
+  }
+  .square-charts_container {
+    gap: 5.592814%;
   }
   .intake-text__value {
     font-size: 1rem;
