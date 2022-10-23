@@ -1,6 +1,5 @@
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts"
 import { useEffect, useState } from "react"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -39,12 +38,4 @@ export default function UserPerformance({data}) {
             </div>
         )
     }
-}
-
-UserPerformance.propTypes = {
-    data: PropTypes.array.isRequired
-}
-
-UserPerformance.defaultProps = {
-    data: 'erreur',
 }

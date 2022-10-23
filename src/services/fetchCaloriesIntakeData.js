@@ -1,6 +1,6 @@
-let mode = "dev"
+let mode = "prod"
 let urlDev = "../mockAPI.json"
-let urlProd = ""
+let urlProd = "http://localhost:3000/user/"
 
 /**
  * 
@@ -20,11 +20,13 @@ export default async function fetchCaloriesIntakeData(id) {
       } catch (error) {
           console.log("error", error)
       }
-    } else {
+    } else if (mode === "prod") {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint with the id
+        const response = await fetch(urlProd+id) // ⬅ endPoint with the id
         const json = await response.json()
-        return json
+        const data = json.data.keyData
+        const caloriesData = data.calorieCount.toString()
+        return caloriesData
       } catch (error) {
           console.log("error", error)
       }

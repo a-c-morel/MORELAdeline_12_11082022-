@@ -1,6 +1,5 @@
 import {LineChart,Tooltip, XAxis, YAxis, Line, ResponsiveContainer} from "recharts"
 import { useEffect, useState } from "react"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -66,12 +65,4 @@ export default function UserAverageSessions({data}) {
             </div>
         )
     }
-}
-
-UserAverageSessions.propTypes = {
-    data: PropTypes.array.isRequired
-}
-
-UserAverageSessions.defaultProps = {
-    data: 'erreur',
 }

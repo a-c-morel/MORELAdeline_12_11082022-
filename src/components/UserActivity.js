@@ -1,6 +1,5 @@
 import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer} from "recharts"
 import { useState, useEffect } from "react"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -83,12 +82,4 @@ export default function UserActivity({data}) {
             </div>
         )
     }
-}
-
-UserActivity.propTypes = {
-    data: PropTypes.array.isRequired
-}
-
-UserActivity.defaultProps = {
-    data: 'erreur',
 }

@@ -1,6 +1,6 @@
-let mode = "dev"
+let mode = "prod"
 let urlDev = "../mockAPI.json"
-let urlProd = ""
+let urlProd = "http://localhost:3000/user/"
 
 /**
  * 
@@ -29,11 +29,22 @@ export default async function fetchBarChartData(id) {
       } catch (error) {
           console.log("error", error)
       }
-    } else {
+    } else if (mode === "prod") {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint with the id
+        const arrayData = []
+        const response = await fetch(urlProd+id+"/activity") // ⬅ endPoint with the id
         const json = await response.json()
-        return json
+        let data = json.data.sessions
+            .map((session, index) => 
+              { return ({
+                  "name": (index+1).toString(),
+                  "Poids (kg)": session.kilogram,
+                  "Calories brûlées (kCal)": session.calories
+                })
+              }
+            )
+        arrayData.push(data)
+        return arrayData
       } catch (error) {
           console.log("error", error)
       }

@@ -1,5 +1,4 @@
 import chicken from "../assets/chicken.png"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -19,12 +18,4 @@ export default function ProteinsIntake({amountOfProteins}) {
             </div>
         </div>
     )
-}
-
-ProteinsIntake.propTypes = {
-    amountOfProteins: PropTypes.string.isRequired
-}
-
-ProteinsIntake.defaultProps = {
-    amountOfProteins: 'erreur',
 }

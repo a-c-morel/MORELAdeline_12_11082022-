@@ -1,5 +1,4 @@
 import apple from "../assets/apple.png"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -19,12 +18,4 @@ export default function CarbIntake({amountOfCarbs}) {
             </div>
         </div>
     )
-}
-
-CarbIntake.propTypes = {
-    amountOfCarbs: PropTypes.string.isRequired
-}
-
-CarbIntake.defaultProps = {
-    amountOfCarbs: 'erreur',
 }

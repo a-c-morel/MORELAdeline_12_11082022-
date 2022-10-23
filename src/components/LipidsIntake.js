@@ -1,5 +1,4 @@
 import cheeseburger from "../assets/cheeseburger.png"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -19,12 +18,4 @@ export default function LipidsIntake({amountOfLipids}) {
             </div>
         </div>
     )
-}
-
-LipidsIntake.propTypes = {
-    amountOfLipids: PropTypes.string.isRequired
-}
-
-LipidsIntake.defaultProps = {
-    amountOfLipids: 'erreur',
 }

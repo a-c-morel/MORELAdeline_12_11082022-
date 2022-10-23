@@ -1,7 +1,6 @@
-let mode = "dev"
+let mode = "prod"
 let urlDev = "../mockAPI.json"
-let urlProd = ""
-
+let urlProd = "http://localhost:3000/user/"
 
 /**
  * 
@@ -20,32 +19,43 @@ export default async function fetchRadarChartData(id) {
         // ⬆ {"1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity"}
         let dataArray = data[0].data.reverse()
         // ⬆ [{"value": 200, "kind": 1}, {"value": 240, "kind": 2}, {"value": 80, "kind": 3}, {"value": 80, "kind": 4}, {"value": 220, "kind": 5}, {"value": 110, "kind": 6}]
-        
-        const getKind = function(number) {
-          let myNumber = number.toString()
-          return kind[myNumber]
-        }
-        
+                
         let radarChartData = dataArray.map((formattedData) => {
             return {
-            "subject": getKind(formattedData.kind),
+            "subject": getKind(formattedData.kind, kind),
             "value" : formattedData.value
             }
           }
         )
   
-        return radarChartData
+      return radarChartData
   
       } catch (error) {
           console.log("error", error)
       }
-    } else {
+    } else if (mode === "prod") {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint avec l'id
+        const response = await fetch(urlProd+id+"/performance") // ⬅ endPoint with the id
         const json = await response.json()
-        return json
+        let kind = json.data.kind
+        let dataArray = json.data.data.reverse()
+
+        let radarChartData = dataArray.map((formattedData) => {
+          return {
+          "subject": getKind(formattedData.kind, kind),
+          "value" : formattedData.value
+          }
+        }
+      )
+
+    return radarChartData
       } catch (error) {
           console.log("error", error)
       }
     }
+  }
+
+  const getKind = function(number, kind) {
+    let myNumber = number.toString()
+    return kind[myNumber]
   }

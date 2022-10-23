@@ -1,5 +1,4 @@
 import energy from "../assets/energy.png"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -18,12 +17,4 @@ export default function CaloriesIntake({amountOfCalories}) {
             </div>
         </div>
     )
-}
-
-CaloriesIntake.propTypes = {
-    amountOfCalories: PropTypes.string.isRequired
-}
-
-CaloriesIntake.defaultProps = {
-    amountOfCalories: 'erreur',
 }

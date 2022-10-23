@@ -1,6 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
 import { useEffect, useState } from "react"
-import PropTypes from "prop-types"
 
 /**
  * 
@@ -63,12 +62,4 @@ export default function UserScore({data}) {
             </div>
         )
     }
-}
-
-UserScore.propTypes = {
-    data: PropTypes.array.isRequired
-}
-
-UserScore.defaultProps = {
-    data: 'erreur',
 }

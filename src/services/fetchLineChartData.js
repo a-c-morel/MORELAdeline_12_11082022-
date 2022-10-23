@@ -1,6 +1,6 @@
-let mode = "dev"
+let mode = "prod"
 let urlDev = "../mockAPI.json"
-let urlProd = ""
+let urlProd = "http://localhost:3000/user/"
 
 /**
  * 
@@ -28,11 +28,21 @@ export default async function fetchLineChartData(id) {
       } catch (error) {
           console.log("error", error)
       }
-    } else {
+    } else if (mode === "prod") {
       try {
-        const response = await fetch(urlProd) // ⬅ endPoint with the id
+        const arrayData = []
+        const response = await fetch(urlProd+id+"/average-sessions") // ⬅ endPoint with the id
         const json = await response.json()
-        return json
+        let data = json.data.sessions
+          .map((session) => 
+            {return ({
+                "name": getDayOfWeek(session.day),
+                "min": session.sessionLength
+              })
+            }
+          )
+        arrayData.push(data)
+        return arrayData
       } catch (error) {
           console.log("error", error)
       }
