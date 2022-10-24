@@ -22,7 +22,7 @@ export default async function fetchRadarChartData(id) {
                 
         let radarChartData = dataArray.map((formattedData) => {
             return {
-            "subject": getKind(formattedData.kind, kind),
+            "subject": tradKindFr(getKind(formattedData.kind, kind)),
             "value" : formattedData.value
             }
           }
@@ -42,7 +42,7 @@ export default async function fetchRadarChartData(id) {
 
         let radarChartData = dataArray.map((formattedData) => {
           return {
-          "subject": getKind(formattedData.kind, kind),
+          "subject": tradKindFr(getKind(formattedData.kind, kind)),
           "value" : formattedData.value
           }
         }
@@ -58,4 +58,18 @@ export default async function fetchRadarChartData(id) {
   const getKind = function(number, kind) {
     let myNumber = number.toString()
     return kind[myNumber]
+  }
+
+  const tradKindFr = function(kind) {
+    if (kind === "energy") {
+      return "énergie"
+    } else if (kind === "strength") {
+      return "force"
+    } else if (kind === "speed") {
+      return "vitesse"
+    } else if (kind === "intensity") {
+      return "intensité"
+    } else {
+      return kind
+    }
   }

@@ -2,8 +2,6 @@ let mode = "prod"
 let urlDev = "../mockAPI.json"
 let urlProd = "http://localhost:3000/user/"
 
-//à retester quand j'aurai forké le backend mis à jour !
-
 /**
  * 
  * @param {string} id - User's id

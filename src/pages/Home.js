@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import PropTypes from "prop-types"
-import fetchData from "../services/fetchData"
+import fetchHomePageData from "../services/fetchHomePageData"
 import { useState, useEffect } from "react"
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     let mockedData = "mockAPI.json"
-    fetchData(mockedData).then((users) => setData(users))
+    fetchHomePageData(mockedData).then((users) => setData(users))
   }, [])
   
   return (data === null) ? (

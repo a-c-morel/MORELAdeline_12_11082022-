@@ -1,12 +1,4 @@
-import fetchGreetingsData from "../services/fetchGreetingsData"
-import fetchBarChartData from "../services/fetchBarChartData"
-import fetchLineChartData from "../services/fetchLineChartData"
-import fetchRadarChartData from "../services/fetchRadarChartData"
-import fetchPieChartData from "../services/fetchPieChartData"
-import fetchCaloriesIntakeData from "../services/fetchCaloriesIntakeData"
-import fetchProteinsIntakeData from "../services/fetchProteinsIntakeData"
-import fetchCarbIntakeData from "../services/fetchCarbIntakeData"
-import fetchLipidsIntakeData from "../services/fetchLipidsIntakeData"
+import fetchDataService from "../services/fetchDataService"
 
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
@@ -40,31 +32,31 @@ export default function Dashboard() {
   const { userId } = useParams()
 
   useEffect(() => {
-    fetchGreetingsData(userId).then((data) => {
+    fetchDataService().fetchGreetingsData(userId).then((data) => {
       setGreetingsData(data)
     })
-    fetchBarChartData(userId).then((data) => {
+    fetchDataService().fetchBarChartData(userId).then((data) => {
       setBarChartData(data)
     })
-    fetchLineChartData(userId).then((data) => {
+    fetchDataService().fetchLineChartData(userId).then((data) => {
       setLineChartData(data)
     })
-    fetchRadarChartData(userId).then((data) => {
+    fetchDataService().fetchRadarChartData(userId).then((data) => {
       setRadarChartData(data)
     })
-    fetchPieChartData(userId).then((data) => {
+    fetchDataService().fetchPieChartData(userId).then((data) => {
       setPieChartData(data)
     })
-    fetchCaloriesIntakeData(userId).then((data) => {
+    fetchDataService().fetchCaloriesIntakeData(userId).then((data) => {
       setCaloriesIntakeData(data)
     })
-    fetchProteinsIntakeData(userId).then((data) => {
+    fetchDataService().fetchProteinsIntakeData(userId).then((data) => {
       setProteinsIntakeData(data)
     })
-    fetchCarbIntakeData(userId).then((data) => {
+    fetchDataService().fetchCarbIntakeData(userId).then((data) => {
       setCarbIntakeData(data)
     })
-    fetchLipidsIntakeData(userId).then((data) => {
+    fetchDataService().fetchLipidsIntakeData(userId).then((data) => {
       setLipidsIntakeData(data)
     })
   }, [userId])
@@ -92,8 +84,3 @@ export default function Dashboard() {
   )
 
 }
-
-/*
-      
-        
-        {/* fin de commentaire}*/
