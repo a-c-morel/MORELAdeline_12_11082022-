@@ -6,6 +6,9 @@ import App from './App'
 import Navbar from './components/Navbar'
 import Aside from './components/Aside'
 
+/**
+ * Render the root div containing the app
+ */
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <BrowserRouter>

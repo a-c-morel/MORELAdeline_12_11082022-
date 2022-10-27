@@ -2,10 +2,10 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
 import { useEffect, useState } from "react"
 
 /**
- * 
- * @param {array of objects} data - Formatted data for Recharts PieChart component
+ * Render a div containing a title, a pie chart component imported from recharts, and a div containing the score
+ * @param {Array} data - Formatted data for Recharts PieChart component
  * (see https://recharts.org/en-US/api/PieChart for more details about the data format)
- * @returns a div containing a title, a pie chart component imported from recharts, and a div containing the score
+ * @returns {React.ReactElement}
  */
 export default function UserScore({data}) {
 

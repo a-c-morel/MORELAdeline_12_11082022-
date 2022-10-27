@@ -2,15 +2,14 @@ import {LineChart,Tooltip, XAxis, YAxis, Line, ResponsiveContainer} from "rechar
 import { useEffect, useState } from "react"
 
 /**
- * 
- * @param {array of objects} data - Formatted data for Recharts LineChart component
+ * Render a div containing a title and a line chart component imported from recharts, with a customized tooltip.
+ * @param {Array} data - Formatted data for Recharts LineChart component
  * (see https://recharts.org/en-US/api/LineChart for more details about the data format)
- * @returns a div containing a title and a line chart component imported from recharts, with a customized tooltip.
+ * @returns {React.ReactElement}
  */
 export default function UserAverageSessions({data}) {
 
     /**
-     * 
      * @param {boolean} active - If set true, the tooltip is displayed. If set false, the tooltip is hidden, usually calculated internally
      * (see https://recharts.org/en-US/api/Tooltip#active for more information)
      * @param {array} payload - The source data of the content to be displayed in the tooltip, usually calculated internally

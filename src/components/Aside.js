@@ -4,8 +4,8 @@ import icon003 from '../assets/icon003.png'
 import icon004 from '../assets/icon004.png'
 
 /**
- * @description It contains an unordered list of icons and the text for copyrights
- * @returns content for aside element
+ * Render an aside element containing an unordered list of icons and the text for copyrights
+ * @returns {React.ReactElement}
  */
 export default function Aside() {
     

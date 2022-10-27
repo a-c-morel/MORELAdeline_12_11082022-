@@ -2,10 +2,10 @@ import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadius
 import { useEffect, useState } from "react"
 
 /**
- * 
- * @param {array of objects} data - Formatted data for Recharts RadarChart component
+ * Render a div containing a RadarChart component imported from recharts
+ * @param {Array} data - Formatted data for Recharts RadarChart component
  * (see https://recharts.org/en-US/api/RadarChart for more details about the data format)
- * @returns a div containing a radar chart component imported from recharts
+ * @returns {React.ReactElement}
  */
 export default function UserPerformance({data}) {
 

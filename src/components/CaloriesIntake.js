@@ -1,9 +1,9 @@
 import energy from "../assets/energy.png"
 
 /**
- * 
+ * Render a div with an icon and the number of calories of the user, for example "1930kCal Calories"
  * @param {string} amountOfCalories - Amount of calories of the user 
- * @returns a div with an icon and the number of calories of the user, for example "1930kCal Calories"
+ * @returns {React.ReactElement}
  */
 export default function CaloriesIntake({amountOfCalories}) {
     return (

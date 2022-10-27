@@ -1,10 +1,9 @@
 import chicken from "../assets/chicken.png"
 
 /**
- * 
+ * Render a div with an icon and the number of proteins of the user with the word "proteins" translated in french, for example "155g Protéines"
  * @param {string} amountOfProteins - Amount of proteins of the user
- * @returns a div with an icon and the number of proteins of the user with the word "proteins"
- * translated in french, for example "155g Protéines"
+ * @returns {React.ReactElement}
  */
 export default function ProteinsIntake({amountOfProteins}) {
     return (

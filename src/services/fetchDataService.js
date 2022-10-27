@@ -1,22 +1,37 @@
 /**
- * 
- * @returns an instance of FetchDataService class
+ * Instanciate FetchDataService class
  */
 export default function fetchDataService() {
     return new FetchDataService()
 }
 
+/**
+ * This class contains functions that fetch data from mock or API, and format it for each component of the app
+ */
 class FetchDataService {
     constructor() {
-        this.mode = "prod"
+        /**
+         * The environment mode : either "dev" (when mock is used) or "prod" (when using the API endpoints)
+         * @type {string}
+         */
+        this.mode = "dev"
+        /**
+         * The url of the mocked data file (in "dev" mode, when not using the API)
+         * @type {string}
+         */
         this.urlDev = "../mockAPI.json"
+        /**
+         * The beginning of the endpoint url where we can get the data
+         * (in "prod" mode, when using the API)
+         * @type {string}
+         */
         this.urlProd = "http://localhost:3000/user/"
     }
 
     /**
-     * 
+     * Fetch Greetings component data
      * @param {string} id - User's id
-     * @returns a string, which is the name of the user
+     * @returns {Promise.<string, Error>} - A promise that returns a string (the user's name) if resolved, or an Error if rejected
      */
     async fetchGreetingsData(id) {
         if(this.mode === "dev") {
@@ -24,14 +39,14 @@ class FetchDataService {
             const response = await fetch(this.urlDev)
             const json = await response.json()
             const data = json.usersGeneral.filter(userGeneral => parseFloat(id) === userGeneral.userId)
-            const [name] = data.map(userGeneral => userGeneral.userInfos.firstName)
+            const name = data.map(userGeneral => userGeneral.userInfos.firstName).toString()
             return name
           } catch (error) {
               console.log("error", error)
           }
         } else if (this.mode === "prod") {
           try {
-            const response = await fetch(this.urlProd+id) // ⬅ endPoint with the id
+            const response = await fetch(this.urlProd+id)
             const json = await response.json()
             const data = json.data.userInfos
             const name = data.firstName
@@ -40,62 +55,60 @@ class FetchDataService {
               console.log("error", error)
           }
         }
-      }
+    }
 
     /**
-     * 
+     * Fetch UserActivity component data (data formatted for Recharts BarChart component : see https://recharts.org/en-US/api/BarChart for more details about the requested data format)
      * @param {string} id - User's id
-     * @returns an array of objects, with data formatted for BarChart component
-     * (see https://recharts.org/en-US/api/BarChart for more details about the requested data format)
+     * @returns {Promise.<Array, Error>} - A promise that returns an Array if resolved, or an Error if rejected
      */
      async fetchBarChartData(id) {
         if (this.mode === "dev") {
-        try {
-            const response = await fetch(this.urlDev)
-            const json = await response.json()
-            let data = json.usersActivity
-            .filter(userActivity => parseFloat(id) === userActivity.userId)
-            .map(userActivity => userActivity.sessions
-                .map((session, index) => 
-                { return ({
-                    "name": (index+1).toString(),
-                    "Poids (kg)": session.kilogram,
-                    "Calories brûlées (kCal)": session.calories
-                    })
-                }
+            try {
+                const response = await fetch(this.urlDev)
+                const json = await response.json()
+                let data = json.usersActivity
+                .filter(userActivity => parseFloat(id) === userActivity.userId)
+                .map(userActivity => userActivity.sessions
+                    .map((session, index) => 
+                    { return ({
+                        "name": (index+1).toString(),
+                        "Poids (kg)": session.kilogram,
+                        "Calories brûlées (kCal)": session.calories
+                        })
+                    }
+                    )
                 )
-            )
-            return data
-        } catch (error) {
-            console.log("error", error)
-        }
+                return data
+            } catch (error) {
+                console.log("error", error)
+            }
         } else if (this.mode === "prod") {
-        try {
-            const arrayData = []
-            const response = await fetch(this.urlProd+id+"/activity") // ⬅ endPoint with the id
-            const json = await response.json()
-            let data = json.data.sessions
-                .map((session, index) => 
-                { return ({
-                    "name": (index+1).toString(),
-                    "Poids (kg)": session.kilogram,
-                    "Calories brûlées (kCal)": session.calories
-                    })
-                }
-                )
-            arrayData.push(data)
-            return arrayData
-        } catch (error) {
-            console.log("error", error)
-        }
+            try {
+                const arrayData = []
+                const response = await fetch(this.urlProd+id+"/activity")
+                const json = await response.json()
+                let data = json.data.sessions
+                    .map((session, index) => 
+                    { return ({
+                        "name": (index+1).toString(),
+                        "Poids (kg)": session.kilogram,
+                        "Calories brûlées (kCal)": session.calories
+                        })
+                    }
+                    )
+                arrayData.push(data)
+                return arrayData
+            } catch (error) {
+                console.log("error", error)
+            }
         }
     }
 
     /**
-     * 
-     * @param {string} id- User's id
-     * @returns an array of objects, with data formatted for LineChart component
-     * (see https://recharts.org/en-US/api/LineChart for more details about the requested data format)
+     * Fetch UserAverageSessions component data (data formatted for LineChart component : see https://recharts.org/en-US/api/LineChart for more details about the requested data format)
+     * @param {string} id - User's id
+     * @returns {Promise.<Array, Error>} - A promise that returns an Array if resolved, or an Error if rejected 
      */
     async fetchLineChartData(id) {
         if (this.mode === "dev") {
@@ -120,7 +133,7 @@ class FetchDataService {
         } else if (this.mode === "prod") {
             try {
                 const arrayData = []
-                const response = await fetch(this.urlProd+id+"/average-sessions") // ⬅ endPoint with the id
+                const response = await fetch(this.urlProd+id+"/average-sessions")
                 const json = await response.json()
                 let data = json.data.sessions
                 .map((session) => 
@@ -138,6 +151,11 @@ class FetchDataService {
         }
     }
 
+    /**
+     * Get a week day initial letter
+     * @param {number} weekday - The day of the week (1 for Monday, 2 for Tuesday,...)
+     * @returns {string} - The initial of the french day of week name
+     */
     getDayOfWeek(weekday) {
         if (weekday === 1) {
             return "L"
@@ -157,10 +175,9 @@ class FetchDataService {
     }
 
     /**
-    * 
+     * Fetch UserPerformance component data (ata formatted for RadarChart component : see https://recharts.org/en-US/api/RadarChart for more details about the requested data format)
      * @param {string} id - User's id
-     * @returns an array of objects, with data formatted for RadarChart component
-     * (see https://recharts.org/en-US/api/RadarChart for more details about the requested data format)
+     * @returns {Promise.<Array, Error>} - A promise that returns an Array if resolved, or an Error if rejected 
      */
     async fetchRadarChartData(id) {
         if(this.mode === "dev") {
@@ -168,16 +185,12 @@ class FetchDataService {
                 const response = await fetch(this.urlDev)
                 const json = await response.json()
                 let data = json.usersPerformance.filter(userPerformance => parseFloat(id) === userPerformance.userId)
-                // ⬆ performance data of the user matching with the id
                 let kind = data[0].kind
-                // ⬆ {"1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity"}
                 let dataArray = data[0].data.reverse()
-                // ⬆ [{"value": 200, "kind": 1}, {"value": 240, "kind": 2}, {"value": 80, "kind": 3}, {"value": 80, "kind": 4}, {"value": 220, "kind": 5}, {"value": 110, "kind": 6}]
-                        
-                let radarChartData = dataArray.map((formattedData) => {
+                let radarChartData = dataArray.map((myData) => {
                     return {
-                    "subject": this.tradKindFr(this.getKind(formattedData.kind, kind)),
-                    "value" : formattedData.value
+                    "subject": this.tradKindFr(this.getKind(myData.kind, kind)),
+                    "value" : myData.value
                     }
                 }
                 )
@@ -189,31 +202,42 @@ class FetchDataService {
             }
         } else if (this.mode === "prod") {
             try {
-                const response = await fetch(this.urlProd+id+"/performance") // ⬅ endPoint with the id
+                const response = await fetch(this.urlProd+id+"/performance")
                 const json = await response.json()
                 let kind = json.data.kind
                 let dataArray = json.data.data.reverse()
-
-                let radarChartData = dataArray.map((formattedData) => {
+                let radarChartData = dataArray.map((myData) => {
                 return {
-                "subject": this.tradKindFr(this.getKind(formattedData.kind, kind)),
-                "value" : formattedData.value
+                "subject": this.tradKindFr(this.getKind(myData.kind, kind)),
+                "value" : myData.value
                 }
                 }
             )
 
             return radarChartData
+
             } catch (error) {
                 console.log("error", error)
             }
         }
     }
 
+    /**
+     * Get the value corresponding to the key matching with a given number
+     * @param {number} number 
+     * @param {string} kind 
+     * @returns {string} - The name of the kind of performance
+     */
     getKind(number, kind) {
         let myNumber = number.toString()
         return kind[myNumber]
     }
 
+    /**
+     * Translate the name of the kind of performance from english to french
+     * @param {string} kind - The name of the kind of performance (in english)
+     * @returns {string} - The name of the kind of performance (in french)
+     */
     tradKindFr(kind) {
         if (kind === "energy") {
             return "énergie"
@@ -229,10 +253,9 @@ class FetchDataService {
     }
 
     /**
-     * 
+     * Fetch UserScore component data (data formatted for PieChart component : see https://recharts.org/en-US/api/PieChart for more details about the requested data format) 
      * @param {string} id - User's id
-     * @returns an object, with data formatted for PieChart component
-     * (see https://recharts.org/en-US/api/PieChart for more details about the requested data format) 
+     * @returns {Promise.<Object, Error>} - A promise that returns an Object if resolved, or an Error if rejected
      */
     async fetchPieChartData(id) {
         if(this.mode === "dev") {
@@ -241,16 +264,12 @@ class FetchDataService {
                 const json = await response.json()
                 const data = json.usersGeneral.filter(userGeneral => parseFloat(id) === userGeneral.userId)
                 let scoreData
-                // ⬆ user'score (floatnumber)
                 if(data[0].todayScore === undefined) {
                 scoreData = data[0].score
                 } else {
                 scoreData = data[0].todayScore
                 }
-                
                 const percentageScore = scoreData * 100
-                // ⬆ user's score converted to percentage
-        
                 const pieChartData= {
                 pieChart: [
                     {
@@ -280,19 +299,15 @@ class FetchDataService {
             }
         } else if (this.mode === "prod") {
             try {
-                const response = await fetch(this.urlProd+id) // ⬅ endPoint with the id
+                const response = await fetch(this.urlProd+id)
                 const json = await response.json()
                 let scoreData
-                // ⬆ user'score (floatnumber)
                 if(json.data.todayScore === undefined) {
                 scoreData = json.data.score
                 } else {
                 scoreData = json.data.todayScore
                 }
-
                 const percentageScore = scoreData * 100
-                // ⬆ user's score converted to percentage
-
                 const pieChartData= {
                 pieChart: [
                     {
@@ -323,9 +338,9 @@ class FetchDataService {
     }
 
     /**
-     * 
+     * Fetch CaloriesIntake component data
      * @param {string} id - User's id
-     * @returns a string which is the amount of calories of the user
+     * @returns {Promise.<string, Error>} - A promise that returns a string (the amount of calories of the user) if resolved, or an Error if rejected
      */
     async fetchCaloriesIntakeData(id) {
         if(this.mode === "dev") {
@@ -336,17 +351,21 @@ class FetchDataService {
                     .filter(userGeneral => parseFloat(id) === userGeneral.userId)
                     .map(userGeneral => userGeneral.keyData)
                 const caloriesData = data[0].calorieCount.toString()
+
                 return caloriesData
+
             } catch (error) {
                 console.log("error", error)
             }
         } else if (this.mode === "prod") {
             try {
-                const response = await fetch(this.urlProd+id) // ⬅ endPoint with the id
+                const response = await fetch(this.urlProd+id)
                 const json = await response.json()
                 const data = json.data.keyData
                 const caloriesData = data.calorieCount.toString()
+
                 return caloriesData
+
             } catch (error) {
                 console.log("error", error)
             }
@@ -354,9 +373,9 @@ class FetchDataService {
     }
 
     /**
-     * 
+     * Fetch ProteinsIntake component data
      * @param {string} id - User's id
-     * @returns a string which is the amount of proteins of the user 
+     * @returns {Promise.<string, Error>} - A promise that returns a string (the amount of proteins of the user) if resolved, or an Error if rejected
      */
     async fetchProteinsIntakeData(id) {
         if(this.mode === "dev") {
@@ -367,17 +386,21 @@ class FetchDataService {
                     .filter(userGeneral => parseFloat(id) === userGeneral.userId)
                     .map(userGeneral => userGeneral.keyData)
                 const proteinsData = data[0].proteinCount.toString()
+
                 return proteinsData
+
             } catch (error) {
                 console.log("error", error)
             }
         } else if (this.mode === "prod") {
             try {
-                const response = await fetch(this.urlProd+id) // ⬅ endPoint with the id
+                const response = await fetch(this.urlProd+id)
                 const json = await response.json()
                 const data = json.data.keyData
                 const proteinsData = data.proteinCount.toString()
+
                 return proteinsData
+
             } catch (error) {
                 console.log("error", error)
             }
@@ -385,9 +408,9 @@ class FetchDataService {
     }
 
     /**
-     * 
+     * Fetch CarbIntake component data
      * @param {string} id - User's id
-     * @returns a string which is the amount of carbohydrates of the user 
+     * @returns {Promise.<string, Error>} - A promise that returns a string (the amount of carbohydrates of the user) if resolved, or an Error if rejected
      */
     async fetchCarbIntakeData(id) {
         if(this.mode === "dev") {
@@ -398,17 +421,21 @@ class FetchDataService {
                     .filter(userGeneral => parseFloat(id) === userGeneral.userId)
                     .map(userGeneral => userGeneral.keyData)
                 const carbData = data[0].carbohydrateCount.toString()
+
                 return carbData
+
             } catch (error) {
                 console.log("error", error)
             }
         } else if (this.mode === "prod") {
             try {
-                const response = await fetch(this.urlProd+id) // ⬅ endPoint with the id
+                const response = await fetch(this.urlProd+id)
                 const json = await response.json()
                 const data = json.data.keyData
                 const carbData = data.carbohydrateCount.toString()
+
                 return carbData
+
             } catch (error) {
                 console.log("error", error)
             }
@@ -416,9 +443,9 @@ class FetchDataService {
     }
 
     /**
-     * 
+     * Fetch LipidsIntake component data
      * @param {string} id - User's id
-     * @returns a string which is the amount of lipids of the user
+     * @returns {Promise.<string, Error>} - A promise that returns a string (the amount of lipids of the user) if resolved, or an Error if rejected
      */
     async fetchLipidsIntakeData(id) {
         if(this.mode === "dev") {
@@ -429,17 +456,21 @@ class FetchDataService {
                     .filter(userGeneral => parseFloat(id) === userGeneral.userId)
                     .map(userGeneral => userGeneral.keyData)
                 const lipidsData = data[0].lipidCount.toString()
+
                 return lipidsData
+
             } catch (error) {
                 console.log("error", error)
             }
         } else if (this.mode === "prod") {
             try {
-                const response = await fetch(this.urlProd+id) // ⬅ endPoint with the id
+                const response = await fetch(this.urlProd+id)
                 const json = await response.json()
                 const data = json.data.keyData
                 const lipidsData = data.lipidCount.toString()
+
                 return lipidsData
+
             } catch (error) {
                 console.log("error", error)
             }

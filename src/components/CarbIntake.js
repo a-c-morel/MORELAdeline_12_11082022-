@@ -1,10 +1,9 @@
 import apple from "../assets/apple.png"
 
 /**
- * 
+ * Render a div with an icon and the number of carbohydrates of the user with the word "carbohydrates" translated in french, for example "150g Glucides"
  * @param {string} amountOfCarbs - Amount of carbohydrates of the user
- * @returns a div with an icon and the number of carbohydrates of the user with the word "carbohydrates"
- * translated in french, for example "150g Glucides"
+ * @returns {React.ReactElement}
  */
 export default function CarbIntake({amountOfCarbs}) {
     return (

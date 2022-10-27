@@ -3,6 +3,12 @@ import PropTypes from "prop-types"
 import fetchHomePageData from "../services/fetchHomePageData"
 import { useState, useEffect } from "react"
 
+/**
+ * Render a div representing a homepage for the app.
+ * It allows the developpers to select a user with a clickable button instead of typing an endpoint.
+ * This is optional, and you can use the app without this component.
+ * @returns {React.ReactElement}
+ */
 export default function Home() {
   
   const [data, setData] = useState(null)

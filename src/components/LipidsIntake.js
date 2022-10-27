@@ -1,10 +1,9 @@
 import cheeseburger from "../assets/cheeseburger.png"
 
 /**
- * 
+ * Render a div with an icon and the number of proteins of the user with the word "proteins" translated in french, for example "120g Lipides"
  * @param {string} amoutOfLipids - Amount of lipids of the user 
- * @returns a div with an icon and the number of proteins of the user with the word "proteins"
- * translated in french, for example "120g Lipides"
+ * @returns {React.ReactElement}
  */
 export default function LipidsIntake({amountOfLipids}) {
     return (

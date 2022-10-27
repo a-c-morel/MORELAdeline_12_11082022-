@@ -14,8 +14,9 @@ import CarbIntake from "../components/CarbIntake"
 import LipidsIntake from "../components/LipidsIntake"
 
 /**
- * 
- * @returns a div containing the main content of the app (Greetings, Recharts components)
+ * Render a div containing the main content of the app (user's informations)
+ * Wait for the data Promise resolutions, then re-renders Dashboard component with data.
+ * @returns {React.ReactElement}
  */
 export default function Dashboard() {
   

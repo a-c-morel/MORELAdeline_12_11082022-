@@ -1,7 +1,7 @@
 /**
- * 
+ * Render a div with greetings and encouragements in french, using the name of the user
  * @param {string} name Name of the user
- * @returns a div with greetings and encouragements in french, using the name of the user
+ * @returns {React.ReactElement}
  */
 export default function Greetings({name}) {
 
