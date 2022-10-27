@@ -62,7 +62,15 @@ export default function Dashboard() {
     })
   }, [userId])
 
-  return (greetingsData === null) ? (
+  return (greetingsData === null
+    || barChartData === null
+    || lineChartData === null
+    || radarChartData === null
+    || pieChartData === null
+    || caloriesIntakeData === null
+    || proteinsIntakeData === null
+    || carbIntakeData === null
+    || lipidsIntakeData === null) ? (
     <div>Loading...</div>
   ) : (
     <div className="dashboard-container">
