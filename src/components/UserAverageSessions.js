@@ -1,5 +1,6 @@
 import {LineChart,Tooltip, XAxis, YAxis, Line, ResponsiveContainer} from "recharts"
 import { useEffect, useState } from "react"
+import PropTypes from "prop-types"
 
 /**
  * Render a div containing a title and a line chart component imported from recharts, with a customized tooltip.
@@ -64,4 +65,11 @@ export default function UserAverageSessions({data}) {
             </div>
         )
     }
+}
+
+UserAverageSessions.propTypes = {
+    data: PropTypes.array
+}
+UserAverageSessions.defaultProps = {
+    data: "Loading..."
 }

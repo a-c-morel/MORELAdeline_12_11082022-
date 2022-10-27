@@ -1,4 +1,5 @@
 import energy from "../assets/energy.png"
+import PropTypes from 'prop-types'
 
 /**
  * Render a div with an icon and the number of calories of the user, for example "1930kCal Calories"
@@ -17,4 +18,11 @@ export default function CaloriesIntake({amountOfCalories}) {
             </div>
         </div>
     )
+}
+
+CaloriesIntake.propTypes = {
+    amountOfCalories: PropTypes.string
+}
+CaloriesIntake.defaultProps = {
+    amountOfCalories: "Loading..."
 }

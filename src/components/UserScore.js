@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
 import { useEffect, useState } from "react"
+import PropTypes from "prop-types"
 
 /**
  * Render a div containing a title, a pie chart component imported from recharts, and a div containing the score
@@ -62,4 +63,11 @@ export default function UserScore({data}) {
             </div>
         )
     }
+}
+
+UserScore.propTypes = {
+    data: PropTypes.object
+}
+UserScore.defaultProps = {
+    data: "Loading..."
 }

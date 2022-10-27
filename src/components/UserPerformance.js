@@ -1,5 +1,6 @@
 import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from "recharts"
 import { useEffect, useState } from "react"
+import PropTypes from "prop-types"
 
 /**
  * Render a div containing a RadarChart component imported from recharts
@@ -38,4 +39,11 @@ export default function UserPerformance({data}) {
             </div>
         )
     }
+}
+
+UserPerformance.propTypes = {
+    data: PropTypes.array
+}
+UserPerformance.defaultProps = {
+    data: "Loading..."
 }

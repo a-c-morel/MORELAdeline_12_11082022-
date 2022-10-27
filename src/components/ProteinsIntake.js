@@ -1,4 +1,5 @@
 import chicken from "../assets/chicken.png"
+import PropTypes from "prop-types"
 
 /**
  * Render a div with an icon and the number of proteins of the user with the word "proteins" translated in french, for example "155g Protéines"
@@ -17,4 +18,11 @@ export default function ProteinsIntake({amountOfProteins}) {
             </div>
         </div>
     )
+}
+
+ProteinsIntake.propTypes = {
+    amountOfProteins: PropTypes.string
+}
+ProteinsIntake.defaultProps = {
+    amountOfProteins: "Loading..."
 }

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 /**
  * Render a div with greetings and encouragements in french, using the name of the user
  * @param {string} name Name of the user
@@ -15,4 +17,11 @@ export default function Greetings({name}) {
             <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
         </div>
     )
+}
+
+Greetings.propTypes = {
+    name: PropTypes.string
+}
+Greetings.defaultProps = {
+    name: "Loading..."
 }

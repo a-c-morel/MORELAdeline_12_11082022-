@@ -1,4 +1,5 @@
 import cheeseburger from "../assets/cheeseburger.png"
+import PropTypes from "prop-types"
 
 /**
  * Render a div with an icon and the number of proteins of the user with the word "proteins" translated in french, for example "120g Lipides"
@@ -17,4 +18,11 @@ export default function LipidsIntake({amountOfLipids}) {
             </div>
         </div>
     )
+}
+
+LipidsIntake.propTypes = {
+    amountOfLipids: PropTypes.string
+}
+LipidsIntake.defaultProps = {
+    amountOfLipids: "Loading..."
 }

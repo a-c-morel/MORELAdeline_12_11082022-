@@ -1,5 +1,6 @@
 import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer} from "recharts"
 import { useState, useEffect } from "react"
+import PropTypes from "prop-types"
 
 /**
  * Render a div containing a title and a BarChart component imported from recharts, with a customized tooltip.
@@ -81,4 +82,11 @@ export default function UserActivity({data}) {
             </div>
         )
     }
+}
+
+UserActivity.propTypes = {
+    data: PropTypes.array
+}
+UserActivity.defaultProps = {
+    data: "Loading..."
 }

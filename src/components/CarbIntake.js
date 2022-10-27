@@ -1,4 +1,5 @@
 import apple from "../assets/apple.png"
+import PropTypes from "prop-types"
 
 /**
  * Render a div with an icon and the number of carbohydrates of the user with the word "carbohydrates" translated in french, for example "150g Glucides"
@@ -17,4 +18,11 @@ export default function CarbIntake({amountOfCarbs}) {
             </div>
         </div>
     )
+}
+
+CarbIntake.propTypes = {
+    amountOfCarbs: PropTypes.string
+}
+CarbIntake.defaultProps = {
+    amountOfCarbs: "Loading..."
 }
