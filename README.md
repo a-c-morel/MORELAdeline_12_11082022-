@@ -15,7 +15,7 @@ If you are working with several versions of NodeJS, I recommend you install nvm.
 
 ### 1.2 Installing the frontend
 
-Fork this repo (https://docs.github.com/en/get-started/quickstart/fork-a-repo ), then clone it (https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+Fork this repo (see https://docs.github.com/en/get-started/quickstart/fork-a-repo), then clone it (see https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 When these steps are done, open your terminal on VSCode.
 
