@@ -8,7 +8,9 @@ To install and launch the backend, see : https://github.com/a-c-morel/P12-front-
 ### 1.1 Prerequisites
 
 NodeJS (version 16.16.0)
+
 npm
+
 If you are working with several versions of NodeJS, I recommend you install nvm. This tool will allow you to easily manage your NodeJS versions.
 
 ### 1.2 Installing the frontend
