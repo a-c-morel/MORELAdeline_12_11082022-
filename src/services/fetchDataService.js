@@ -1,14 +1,7 @@
 /**
- * Instanciate FetchDataService class
- */
-export default function fetchDataService() {
-    return new FetchDataService()
-}
-
-/**
  * This class contains functions that fetch data from mock or API, and format it for each component of the app
  */
-class FetchDataService {
+export default class FetchDataService {
     constructor() {
         /**
          * The environment mode : either "dev" (when mock is used) or "prod" (when using the API endpoints)
@@ -186,6 +179,7 @@ class FetchDataService {
                 const json = await response.json()
                 let data = json.usersPerformance.filter(userPerformance => parseFloat(id) === userPerformance.userId)
                 let kind = data[0].kind
+                //console.log(kind)
                 let dataArray = data[0].data.reverse()
                 let radarChartData = dataArray.map((myData) => {
                     return {
@@ -207,10 +201,10 @@ class FetchDataService {
                 let kind = json.data.kind
                 let dataArray = json.data.data.reverse()
                 let radarChartData = dataArray.map((myData) => {
-                return {
-                "subject": this.tradKindFr(this.getKind(myData.kind, kind)),
-                "value" : myData.value
-                }
+                    return {
+                    "subject": this.tradKindFr(this.getKind(myData.kind, kind)),
+                    "value" : myData.value
+                    }
                 }
             )
 

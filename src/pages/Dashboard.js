@@ -1,4 +1,5 @@
-import fetchDataService from "../services/fetchDataService"
+//import fetchDataService from "../services/fetchDataService"
+import FetchDataService from "../services/fetchDataService"
 
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
@@ -33,31 +34,34 @@ export default function Dashboard() {
   const { userId } = useParams()
 
   useEffect(() => {
-    fetchDataService().fetchGreetingsData(userId).then((data) => {
+
+    const fetchDataServiceInstance = new FetchDataService()
+
+    fetchDataServiceInstance.fetchGreetingsData(userId).then((data) => {
       setGreetingsData(data)
     })
-    fetchDataService().fetchBarChartData(userId).then((data) => {
+    fetchDataServiceInstance.fetchBarChartData(userId).then((data) => {
       setBarChartData(data)
     })
-    fetchDataService().fetchLineChartData(userId).then((data) => {
+    fetchDataServiceInstance.fetchLineChartData(userId).then((data) => {
       setLineChartData(data)
     })
-    fetchDataService().fetchRadarChartData(userId).then((data) => {
+    fetchDataServiceInstance.fetchRadarChartData(userId).then((data) => {
       setRadarChartData(data)
     })
-    fetchDataService().fetchPieChartData(userId).then((data) => {
+    fetchDataServiceInstance.fetchPieChartData(userId).then((data) => {
       setPieChartData(data)
     })
-    fetchDataService().fetchCaloriesIntakeData(userId).then((data) => {
+    fetchDataServiceInstance.fetchCaloriesIntakeData(userId).then((data) => {
       setCaloriesIntakeData(data)
     })
-    fetchDataService().fetchProteinsIntakeData(userId).then((data) => {
+    fetchDataServiceInstance.fetchProteinsIntakeData(userId).then((data) => {
       setProteinsIntakeData(data)
     })
-    fetchDataService().fetchCarbIntakeData(userId).then((data) => {
+    fetchDataServiceInstance.fetchCarbIntakeData(userId).then((data) => {
       setCarbIntakeData(data)
     })
-    fetchDataService().fetchLipidsIntakeData(userId).then((data) => {
+    fetchDataServiceInstance.fetchLipidsIntakeData(userId).then((data) => {
       setLipidsIntakeData(data)
     })
   }, [userId])
