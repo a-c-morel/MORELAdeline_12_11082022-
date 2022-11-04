@@ -44,6 +44,3 @@ export default function UserPerformance({data}) {
 UserPerformance.propTypes = {
     data: PropTypes.array
 }
-UserPerformance.defaultProps = {
-    data: "Loading..."
-}

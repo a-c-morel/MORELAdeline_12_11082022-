@@ -87,6 +87,3 @@ export default function UserActivity({data}) {
 UserActivity.propTypes = {
     data: PropTypes.array
 }
-UserActivity.defaultProps = {
-    data: "Loading..."
-}

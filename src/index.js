@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Aside from './components/Aside'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
 root.render(
   <BrowserRouter>
       <div>

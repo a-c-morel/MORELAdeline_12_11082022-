@@ -70,6 +70,3 @@ export default function UserAverageSessions({data}) {
 UserAverageSessions.propTypes = {
     data: PropTypes.array
 }
-UserAverageSessions.defaultProps = {
-    data: "Loading..."
-}

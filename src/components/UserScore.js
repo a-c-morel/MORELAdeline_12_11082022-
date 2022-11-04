@@ -68,6 +68,3 @@ export default function UserScore({data}) {
 UserScore.propTypes = {
     data: PropTypes.object
 }
-UserScore.defaultProps = {
-    data: "Loading..."
-}

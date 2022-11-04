@@ -7,7 +7,7 @@ export default class FetchDataService {
          * The environment mode : either "dev" (when mock is used) or "prod" (when using the API endpoints)
          * @type {string}
          */
-        this.mode = "dev"
+        this.mode = "prod"
         /**
          * The url of the mocked data file (in "dev" mode, when not using the API)
          * @type {string}
@@ -51,7 +51,7 @@ export default class FetchDataService {
     }
 
     /**
-     * Fetch UserActivity component data (data formatted for Recharts BarChart component : see https://recharts.org/en-US/api/BarChart for more details about the requested data format)
+     * Fetch UserActivity component data (data formatted for Recharts BarChart component : see {@link https://recharts.org/en-US/api/BarChart} for more details about the requested data format)
      * @param {string} id - User's id
      * @returns {Promise.<Array, Error>} - A promise that returns an Array if resolved, or an Error if rejected
      */
@@ -99,7 +99,7 @@ export default class FetchDataService {
     }
 
     /**
-     * Fetch UserAverageSessions component data (data formatted for LineChart component : see https://recharts.org/en-US/api/LineChart for more details about the requested data format)
+     * Fetch UserAverageSessions component data (data formatted for LineChart component : see {@link https://recharts.org/en-US/api/LineChart} for more details about the requested data format)
      * @param {string} id - User's id
      * @returns {Promise.<Array, Error>} - A promise that returns an Array if resolved, or an Error if rejected 
      */
@@ -168,7 +168,7 @@ export default class FetchDataService {
     }
 
     /**
-     * Fetch UserPerformance component data (ata formatted for RadarChart component : see https://recharts.org/en-US/api/RadarChart for more details about the requested data format)
+     * Fetch UserPerformance component data (ata formatted for RadarChart component : see {@link https://recharts.org/en-US/api/RadarChart} for more details about the requested data format)
      * @param {string} id - User's id
      * @returns {Promise.<Array, Error>} - A promise that returns an Array if resolved, or an Error if rejected 
      */
@@ -247,7 +247,7 @@ export default class FetchDataService {
     }
 
     /**
-     * Fetch UserScore component data (data formatted for PieChart component : see https://recharts.org/en-US/api/PieChart for more details about the requested data format) 
+     * Fetch UserScore component data (data formatted for PieChart component : see {@link https://recharts.org/en-US/api/PieChart} for more details about the requested data format) 
      * @param {string} id - User's id
      * @returns {Promise.<Object, Error>} - A promise that returns an Object if resolved, or an Error if rejected
      */
