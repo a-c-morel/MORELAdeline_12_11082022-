@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
  * @param {string} amountOfCalories - Amount of calories of the user 
  * @returns {React.ReactElement}
  */
-export default function CaloriesIntake({amountOfCalories}) {
+function CaloriesIntake({amountOfCalories}) {
     return (
         <div className="intake-element">
             <div className="intake-img-energy__background intake-img__background">
@@ -26,3 +26,5 @@ CaloriesIntake.propTypes = {
 CaloriesIntake.defaultProps = {
     amountOfCalories: "Loading..."
 }
+
+export default CaloriesIntake

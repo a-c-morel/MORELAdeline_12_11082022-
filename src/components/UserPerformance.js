@@ -8,7 +8,7 @@ import PropTypes from "prop-types"
  * (see https://recharts.org/en-US/api/RadarChart for more details about the data format)
  * @returns {React.ReactElement}
  */
-export default function UserPerformance({data}) {
+function UserPerformance({data}) {
 
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
@@ -44,3 +44,5 @@ export default function UserPerformance({data}) {
 UserPerformance.propTypes = {
     data: PropTypes.array
 }
+
+export default UserPerformance

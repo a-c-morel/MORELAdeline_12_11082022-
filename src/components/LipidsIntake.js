@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
  * @param {string} amoutOfLipids - Amount of lipids of the user 
  * @returns {React.ReactElement}
  */
-export default function LipidsIntake({amountOfLipids}) {
+function LipidsIntake({amountOfLipids}) {
     return (
         <div className="intake-element">
             <div className="intake-img-lipid__background intake-img__background">
@@ -26,3 +26,5 @@ LipidsIntake.propTypes = {
 LipidsIntake.defaultProps = {
     amountOfLipids: "Loading..."
 }
+
+export default LipidsIntake

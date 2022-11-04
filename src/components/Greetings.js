@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
  * @param {string} name Name of the user
  * @returns {React.ReactElement}
  */
-export default function Greetings({name}) {
+function Greetings({name}) {
 
     return (name === undefined) ? (
         <div className="greetings">
@@ -25,3 +25,5 @@ Greetings.propTypes = {
 Greetings.defaultProps = {
     name: "Loading..."
 }
+
+export default Greetings

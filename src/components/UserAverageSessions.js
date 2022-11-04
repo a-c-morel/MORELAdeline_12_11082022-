@@ -8,7 +8,7 @@ import PropTypes from "prop-types"
  * (see https://recharts.org/en-US/api/LineChart for more details about the data format)
  * @returns {React.ReactElement}
  */
-export default function UserAverageSessions({data}) {
+function UserAverageSessions({data}) {
 
     /**
      * @param {boolean} active - If set true, the tooltip is displayed. If set false, the tooltip is hidden, usually calculated internally
@@ -70,3 +70,5 @@ export default function UserAverageSessions({data}) {
 UserAverageSessions.propTypes = {
     data: PropTypes.array
 }
+
+export default UserAverageSessions

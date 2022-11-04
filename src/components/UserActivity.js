@@ -8,7 +8,7 @@ import PropTypes from "prop-types"
  * (see https://recharts.org/en-US/api/BarChart for more details about the data format)
  * @returns {React.ReactElement}
  */
-export default function UserActivity({data}) {
+function UserActivity({data}) {
 
     /**
      * @param {boolean} active - If set true, the tooltip is displayed. If set false, the tooltip is hidden, usually calculated internally
@@ -87,3 +87,5 @@ export default function UserActivity({data}) {
 UserActivity.propTypes = {
     data: PropTypes.array
 }
+
+export default UserActivity

@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
  * @param {string} amountOfCarbs - Amount of carbohydrates of the user
  * @returns {React.ReactElement}
  */
-export default function CarbIntake({amountOfCarbs}) {
+function CarbIntake({amountOfCarbs}) {
     return (
         <div className="intake-element">
             <div className="intake-img-carb__background intake-img__background">
@@ -26,3 +26,5 @@ CarbIntake.propTypes = {
 CarbIntake.defaultProps = {
     amountOfCarbs: "Loading..."
 }
+
+export default CarbIntake

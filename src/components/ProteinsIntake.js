@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
  * @param {string} amountOfProteins - Amount of proteins of the user
  * @returns {React.ReactElement}
  */
-export default function ProteinsIntake({amountOfProteins}) {
+function ProteinsIntake({amountOfProteins}) {
     return (
         <div className="intake-element">
             <div className="intake-img-proteins__background intake-img__background">
@@ -26,3 +26,5 @@ ProteinsIntake.propTypes = {
 ProteinsIntake.defaultProps = {
     amountOfProteins: "Loading..."
 }
+
+export default ProteinsIntake

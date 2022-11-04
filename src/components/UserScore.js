@@ -8,7 +8,7 @@ import PropTypes from "prop-types"
  * (see https://recharts.org/en-US/api/PieChart for more details about the data format)
  * @returns {React.ReactElement}
  */
-export default function UserScore({data}) {
+function UserScore({data}) {
 
     const [width, setWidth] = useState(window.innerWidth)
     const [height, setHeight] = useState(window.innerHeight)
@@ -68,3 +68,5 @@ export default function UserScore({data}) {
 UserScore.propTypes = {
     data: PropTypes.object
 }
+
+export default UserScore
