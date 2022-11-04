@@ -54,7 +54,7 @@ function UserAverageSessions({data}) {
                 <h4>Durée moyenne des sessions</h4>
                 <div className="linechart-graph">
                 <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={data[0]} fill="#FF0000">
+                    <LineChart data={data} fill="#FF0000">
                         <XAxis tickSize="0" axisLine={false} dataKey="name" tick={{ fill: "#ffffff8e", fontSize: tickFontSize, transform: "translate(0, 22)" }}/>
                         <YAxis unit="min" hide={true} tickSize="0" axisLine={false} dataKey="min"/>
                         <Tooltip content={<CustomTooltip />} wrapperStyle={{outline: "none", width: "2.44rem", height: "1.5rem", backgroundColor: "#ffffff"}} cursor={{ stroke: '#0202030a', strokeWidth: 50 }} />

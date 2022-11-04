@@ -69,7 +69,7 @@ function UserActivity({data}) {
             <div className="barchart-container">
                 <h4>Activité quotidienne</h4>
                 <ResponsiveContainer width="100%" height={responsiveContainerHeight}>
-                    <BarChart title="Activité quotidienne" data={data[0]} margin={{left: 32, bottom: 21, right: 21}}>
+                    <BarChart title="Activité quotidienne" data={data} margin={{left: 32, bottom: 21, right: 21}}>
                         <Legend align="right" wrapperStyle={{top: legendTop, right: 19, fontSize: legendFontSize}} iconSize= "8" iconType="circle"/>
                         <CartesianGrid strokeDasharray="2 1" vertical={false} />
                         <XAxis dy={15} padding={{ right: -32, left: -32 }} axisLine={{stroke:"#DEDEDE"}} tickLine={false} tick={{ fontSize: '.75rem' }} dataKey="name" />

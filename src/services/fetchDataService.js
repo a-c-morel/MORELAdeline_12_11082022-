@@ -72,6 +72,7 @@ export default class FetchDataService {
                     }
                     )
                 )
+                data = data[0]
                 return data
             } catch (error) {
                 console.log("error", error)
@@ -91,7 +92,8 @@ export default class FetchDataService {
                     }
                     )
                 arrayData.push(data)
-                return arrayData
+                data = arrayData[0]
+                return data
             } catch (error) {
                 console.log("error", error)
             }
@@ -119,6 +121,7 @@ export default class FetchDataService {
                     }
                     )
                 )
+                data = data[0]
                 return data
             } catch (error) {
                 console.log("error", error)
@@ -137,7 +140,8 @@ export default class FetchDataService {
                     }
                 )
                 arrayData.push(data)
-                return arrayData
+                data = arrayData[0]
+                return data
             } catch (error) {
                 console.log("error", error)
             }
